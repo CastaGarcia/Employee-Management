@@ -1,0 +1,11 @@
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\bin\Debug\net9.0\Employee.Management.deps.json
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\bin\Debug\net9.0\Employee.Management.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\bin\Debug\net9.0\Employee.Management.pdb
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\obj\Debug\net9.0\Employee.Management.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\obj\Debug\net9.0\Employee.Management.AssemblyInfoInputs.cache
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\obj\Debug\net9.0\Employee.Management.AssemblyInfo.cs
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\obj\Debug\net9.0\Employee.Management.csproj.CoreCompileInputs.cache
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\obj\Debug\net9.0\Employee.Management.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\obj\Debug\net9.0\refint\Employee.Management.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\obj\Debug\net9.0\Employee.Management.pdb
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management\obj\Debug\net9.0\ref\Employee.Management.dll

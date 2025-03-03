@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "mtDOneF25U3mfTxj0pwmuhFIqWQqKQIVSTAPFhAvbMo=",
+  "Source": "Users.Management.Api",
+  "BasePath": "_content/Users.Management.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

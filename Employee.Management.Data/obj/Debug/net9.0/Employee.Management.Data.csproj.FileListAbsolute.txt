@@ -1,0 +1,17 @@
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.Management.Data.csproj.AssemblyReference.cache
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.Management.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.Management.Data.AssemblyInfoInputs.cache
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.Management.Data.AssemblyInfo.cs
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.Management.Data.csproj.CoreCompileInputs.cache
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\bin\Debug\net9.0\Employee.Management.Data.deps.json
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\bin\Debug\net9.0\Employee.Management.Data.runtimeconfig.json
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\bin\Debug\net9.0\Employee.Management.Data.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\bin\Debug\net9.0\Employee.Management.Data.pdb
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\bin\Debug\net9.0\Employee.Management.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\bin\Debug\net9.0\Employee.Management.pdb
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.2760AFE3.Up2Date
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.Management.Data.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\refint\Employee.Management.Data.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.Management.Data.pdb
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.Management.Data.genruntimeconfig.cache
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\ref\Employee.Management.Data.dll
