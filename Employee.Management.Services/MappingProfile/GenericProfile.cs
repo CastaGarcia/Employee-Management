@@ -8,6 +8,7 @@ namespace Employees.Management.Services.MappingProfile
         public GenericProfile()
         {
             CreateMap<Employee, EmployeeOutput>();
+            CreateMap<User, UserOutput>();
         }
             
     }

@@ -954,8 +954,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "Management": "1.0.0",
-          "Users.Managament.Data": "1.0.0"
+          "Management": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Employees.Management.dll": {}
@@ -972,16 +971,6 @@
         },
         "runtime": {
           "bin/placeholder/Management.dll": {}
-        }
-      },
-      "Users.Managament.Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/Users.Managament.Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Users.Managament.Data.dll": {}
         }
       }
     }
@@ -2911,11 +2900,6 @@
       "type": "project",
       "path": "../Management/Management.csproj",
       "msbuildProject": "../Management/Management.csproj"
-    },
-    "Users.Managament.Data/1.0.0": {
-      "type": "project",
-      "path": "../Users.Managament.Data/Users.Managament.Data.csproj",
-      "msbuildProject": "../Users.Managament.Data/Users.Managament.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {

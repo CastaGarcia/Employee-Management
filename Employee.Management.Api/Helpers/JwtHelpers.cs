@@ -13,7 +13,6 @@ namespace Employees.Management.Api.Helpers
             {
                 new Claim("Id", userAccounts.Id.ToString()),
                 new Claim(ClaimTypes.Name, userAccounts.UserName),
-                new Claim(ClaimTypes.Email, userAccounts.EmailId),
                 new Claim(ClaimTypes.NameIdentifier, Id.ToString()),
                 new Claim(ClaimTypes.Expiration, DateTime.UtcNow.AddDays(1).ToString("MMM ddd dd yyy HH:mm:ss tt")),
             };
@@ -72,10 +71,10 @@ namespace Employees.Management.Api.Helpers
                 }
                 catch (Exception exception)
                 {
-                    throw new Exception("Error Generating the JWT", exception);
+                    throw new Exception("Error Generating JWT", exception);
                 }
 
             }
-        }
     }
 }
+

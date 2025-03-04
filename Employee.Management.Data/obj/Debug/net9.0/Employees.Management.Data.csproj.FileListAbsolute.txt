@@ -11,11 +11,10 @@ C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employees.Management.Data.AssemblyInfoInputs.cache
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employees.Management.Data.AssemblyInfo.cs
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employees.Management.Data.csproj.CoreCompileInputs.cache
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employees.Management.Data.sourcelink.json
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employee.C98AD03B.Up2Date
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employees.Management.Data.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\refint\Employees.Management.Data.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employees.Management.Data.pdb
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\Employees.Management.Data.genruntimeconfig.cache
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\obj\Debug\net9.0\ref\Employees.Management.Data.dll
-C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\bin\Debug\net9.0\Users.Managament.Data.dll
-C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Data\bin\Debug\net9.0\Users.Managament.Data.pdb

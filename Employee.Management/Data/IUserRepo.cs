@@ -2,6 +2,10 @@
 {
     public interface IUserRepo
     {
-        Task<User> CreateUser(string id, string username, string password);
+        Task AddAsync(User user);
+        Task<User?> GetById(string id);
+        void Delete(User user);
+
+        Task SaveChangesAsync();
     }
 }

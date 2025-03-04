@@ -9,6 +9,7 @@ C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\AutoMapper.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Humanizer.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.Build.Locator.dll
@@ -23,6 +24,12 @@ C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Microsoft.OpenApi.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Mono.TextTemplating.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Npgsql.dll
@@ -36,6 +43,7 @@ C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\System.Composition.Hosting.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\System.Composition.Runtime.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\System.Composition.TypedParts.dll
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -116,6 +124,7 @@ C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\Employees.Management.Api.csproj.CoreCompileInputs.cache
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\Employees.Management.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\Employees.Management.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\Employees.Management.Api.sourcelink.json
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\scopedcss\bundle\Employees.Management.Api.styles.css
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\staticwebassets.development.json
@@ -133,5 +142,3 @@ C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\Employees.Management.Api.pdb
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\Employees.Management.Api.genruntimeconfig.cache
 C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\obj\Debug\net9.0\ref\Employees.Management.Api.dll
-C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Users.Managament.Data.dll
-C:\Users\CASTAÑEDA\source\repos\EmployeeManagament\Employee.Management.Api\bin\Debug\net9.0\Users.Managament.Data.pdb

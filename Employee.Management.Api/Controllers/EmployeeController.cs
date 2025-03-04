@@ -2,6 +2,8 @@
 using Employees.Management.Services;
 using Management.Inputs;
 using Management.Outputs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Employees.Management.Api.Controllers
@@ -20,6 +22,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Create([FromBody] EmployeeCreationData employeeCreationData)
         {
             Employee? employee = await _employeeService.Create(employeeCreationData);
@@ -28,6 +31,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> GetEmployee(string id)
         {
             Employee? employee = await _employeeService.GetById(id);
@@ -36,6 +40,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> DeleteEmployee(string id)
         {
             await _employeeService.Delete(id);

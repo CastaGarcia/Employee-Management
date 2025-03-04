@@ -1,5 +1,4 @@
-﻿using Employees.Management;
-using Employees.Management.Data;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Employees.Management.Data.Repos
 {
@@ -11,9 +10,29 @@ namespace Employees.Management.Data.Repos
             _db = db;
         }
 
-        public Task<User> CreateUser(string id, string username, string password)
+        public async Task AddAsync(User user)
         {
-            throw new NotImplementedException();
+            await _db.Users.AddAsync(user);
+            await _db.Users.AddRangeAsync();
+
+        }
+
+        public async Task<User?> GetById(string id)
+        {
+            var user = await _db.Users
+                .FirstOrDefaultAsync(e => e.Id == id);
+
+            return user;
+        }
+
+        public void Delete(User user)
+        {
+            _db.Users.Remove(user);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _db.SaveChangesAsync();
         }
     }
 }
