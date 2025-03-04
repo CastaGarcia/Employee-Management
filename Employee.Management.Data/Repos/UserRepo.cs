@@ -34,5 +34,11 @@ namespace Employees.Management.Data.Repos
         {
             await _db.SaveChangesAsync();
         }
+
+        public async Task Update(User user)
+        {
+            await _db.Users.AddAsync(user);
+            await _db.Users.AddRangeAsync();
+        }
     }
 }

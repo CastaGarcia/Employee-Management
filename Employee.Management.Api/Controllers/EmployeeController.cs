@@ -48,5 +48,14 @@ namespace Employees.Management.Api.Controllers
             return NoContent();
         }
 
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        public async Task<IActionResult> Update([FromBody] EmployeeUpdateData employeeUpdateData)
+        {
+            Employee? employee = await _employeeService.Update(employeeUpdateData);
+
+            return Ok(_mapper.Map<EmployeeOutput>(employee));
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Employees.Management.Services;
+using Employees.Management.Services.Employees;
 using Management.Inputs;
 using Management.Outputs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -45,6 +46,15 @@ namespace Employees.Management.Api.Controllers
             await _userService.Delete(id);
 
             return NoContent();
+        }
+
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        public async Task<IActionResult> Update([FromBody] UserUpdateData userUpdateData)
+        {
+            User? user = await _userService.Update(userUpdateData);
+
+            return Ok(_mapper.Map<UserOutput>(user));
         }
     }
 }

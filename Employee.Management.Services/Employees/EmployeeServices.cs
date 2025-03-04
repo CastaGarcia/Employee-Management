@@ -53,5 +53,22 @@ namespace Employees.Management.Services.Employees
 
             return employeExist;
         }
+
+        public async Task<Employee> Update(EmployeeUpdateData employeeUpdateData)
+        {
+            if (string.IsNullOrEmpty(employeeUpdateData.Id))
+                throw new Exception("the Id is empty");
+
+            Employee? employeExist = await _employeeRepo.GetById(employeeUpdateData.Id);
+            if (employeExist == null)
+                throw new Exception("the employe that you look for doesnt eist");
+
+            employeExist.FirstName = employeeUpdateData.FirstName;
+            employeExist.LastName = employeeUpdateData.LastName;
+            employeExist.Dui = employeeUpdateData.Dui;
+    
+            await _employeeRepo.SaveChangesAsync();
+            return employeExist;
+        }
     }
 }

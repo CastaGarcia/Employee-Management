@@ -9,5 +9,7 @@ namespace Employees.Management.Services
         Task<User?> GetById(string id);
 
         Task Delete(string id);
+
+        Task<User?> Update(UserUpdateData userUpdateData);
     }
 }

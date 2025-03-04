@@ -52,5 +52,22 @@ namespace Employees.Management.Services.Users
 
             return userExist;
         }
+
+        public async Task<User> Update(UserUpdateData userUpdateData)
+        {
+            if (string.IsNullOrEmpty(userUpdateData.Id))
+                throw new Exception("the Id is empty");
+
+            User? UserExist = await _userRepo.GetById(userUpdateData.Id);
+            if (UserExist == null)
+                throw new Exception("the user that you look for doesnt eist");
+
+            UserExist.Id = userUpdateData.Id;
+            UserExist.UserName = userUpdateData.UserName;
+            UserExist.PassWord = userUpdateData.PassWord;
+
+            await _userRepo.SaveChangesAsync();
+            return UserExist;
+        }
     }
 }
