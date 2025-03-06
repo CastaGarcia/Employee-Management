@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Employees.Management.Models;
 using Employees.Management.Services;
 using Management.Inputs;
 using Management.Outputs;
@@ -22,14 +23,21 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Create([FromBody] EmployeeCreationData employeeCreationData)
         {
-            Employee? employee = await _employeeService.Create(employeeCreationData);
+            try
+            {
+                Employee? employee = await _employeeService.Create(employeeCreationData);
+                var result = _mapper.Map<EmployeeOutput>(employee);
+                return Ok(result);
 
-            return Ok(_mapper.Map<EmployeeOutput>(employee));
+
+            }
+            catch (Exception ex)
+            {               
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
-
         [HttpGet("{id}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> GetEmployee(string id)

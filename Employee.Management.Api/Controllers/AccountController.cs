@@ -1,5 +1,6 @@
 ﻿using Employees.Management.Api.Helpers;
 using Employees.Management.Data;
+using Employees.Management.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Employees.Management.Api.Controllers
@@ -19,7 +20,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetToken(UserLogins userLogin)
+        public IActionResult GetToken(UserLogin userLogin)
         {
 
             try
@@ -27,12 +28,10 @@ namespace Employees.Management.Api.Controllers
                 var Token = new UserTokens();
 
                 var searchUser = _appDbContext.Users
-                    .FirstOrDefault(user => user.UserName == userLogin.UserName && user.PassWord == userLogin.Password);
+                    .FirstOrDefault(user => user.UserName == userLogin.UserName && user.PassWord == userLogin.PassWord);
 
                 if (searchUser == null)
                     return BadRequest("Invalid username or password.");
-
-
 
                 Token = JwtHelpers.GenTokenKey(new UserTokens()
                 {

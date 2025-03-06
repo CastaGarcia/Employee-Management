@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Employees.Management.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Employees.Management.Data.Mappings
@@ -11,6 +12,7 @@ namespace Employees.Management.Data.Mappings
             builder.Property(x => x.FirstName).HasMaxLength(100);
             builder.Property(x => x.LastName).HasMaxLength(100);
             builder.Property(x => x.Dui).HasMaxLength(100);
+
         }
     }
 }

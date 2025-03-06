@@ -1,4 +1,6 @@
-﻿namespace Employees.Management.Data
+﻿using Employees.Management.Models;
+
+namespace Employees.Management.Data
 {
     public interface IEmployeeRepo
     {

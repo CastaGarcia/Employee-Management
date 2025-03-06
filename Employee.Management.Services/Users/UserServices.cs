@@ -1,4 +1,5 @@
 ﻿using Employees.Management.Data;
+using Employees.Management.Models;
 using Management.Inputs;
 
 namespace Employees.Management.Services.Users

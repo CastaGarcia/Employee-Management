@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Employees.Management.Models;
 using Management.Outputs;
 
 namespace Employees.Management.Services.MappingProfile

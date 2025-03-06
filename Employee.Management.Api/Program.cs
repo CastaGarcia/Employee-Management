@@ -6,12 +6,19 @@ using Employees.Management.Services.Employees;
 using Employees.Management.Services.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
-var builder = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+try
+{
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Services.AddSerilog(); // <-- Add this line
 
-// Swagger
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
+    // Swagger
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen(options =>
     {
         //we define the Security for authentication
         options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -42,67 +49,82 @@ builder.Services.AddSwaggerGen(options =>
 
 
 
-// Add services to the container.
+    // Add services to the container.
 
-builder.Services.AddControllers();
+    builder.Services.AddControllers();
 
-string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AppDbContext>(options =>
+    string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<AppDbContext>(options =>
+    {
+        options.UseNpgsql(connectionString);
+
+    });
+
+    //Add service of JWT Autorization
+    builder.Services.AddJwtTokenService(builder.Configuration);
+
+    //Add Authorization 
+    builder.Services.AddAuthorization(option =>
+    {
+        option.AddPolicy("UserOnlyPolicy", policy => policy.RequireClaim("UserOnly", "User1"));
+    });
+    //Automapper
+    builder.Services.AddAutoMapper(typeof(DummyMarker).Assembly);
+    builder.Services.AddHttpContextAccessor();
+
+    //Repositorios
+    builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
+    builder.Services.AddScoped<IEmployeeServices, EmployeeServices>();
+    builder.Services.AddScoped<IUserRepo, UserRepo>();
+    builder.Services.AddScoped<IUserServices, UserServices>();
+
+
+    // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+    builder.Services.AddOpenApi();
+
+
+    var app = builder.Build();
+
+    app.UseSerilogRequestLogging(); // <-- Add this line
+
+    //Create DB each time it run
+    var sp = app.Services.CreateScope().ServiceProvider;
+    var context = sp.GetService<AppDbContext>();
+    if (context?.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
+        context?.Database.Migrate();
+
+    // Active Swagger
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+
+        app.MapGet("/", () => Results.Redirect("/swagger"));
+    }
+
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseAuthorization();
+
+    app.MapControllers();
+
+    app.Run();
+}
+catch (Exception ex)
 {
-    options.UseNpgsql(connectionString);
-
-});
-
-//Add service of JWT Autorization
-builder.Services.AddJwtTokenService(builder.Configuration);
-
-//Add Authorization 
-builder.Services.AddAuthorization(option =>
+    Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
 {
-    option.AddPolicy("UserOnlyPolicy", policy => policy.RequireClaim("UserOnly", "User1"));
-});
-//Automapper
-builder.Services.AddAutoMapper(typeof(DummyMarker).Assembly);
-builder.Services.AddHttpContextAccessor();
-
-//Repositorios
-builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
-builder.Services.AddScoped<IEmployeeServices, EmployeeServices>();
-builder.Services.AddScoped<IUserRepo, UserRepo>();
-builder.Services.AddScoped<IUserServices, UserServices>();
-
-
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-
-var app = builder.Build();
-
-//Create DB each time it run
-var sp = app.Services.CreateScope().ServiceProvider;
-var context = sp.GetService<AppDbContext>();
-if (context?.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
-    context?.Database.Migrate();
-
-// Active Swagger
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-
-    app.MapGet("/", () => Results.Redirect("/swagger"));
+    Log.CloseAndFlush();
 }
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
 
-app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+public partial class Program { } //to use Integration Test

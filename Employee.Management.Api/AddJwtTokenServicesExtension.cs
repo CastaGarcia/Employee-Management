@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Employees.Management.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 
@@ -11,8 +12,7 @@ namespace Employees.Management.Api
             //Add JWT Settings
             var bindJwtSettings = new JwtSettings();
             Configuration.Bind("JsonWebTokenKeys", bindJwtSettings);
-
-            //Add Singleton of JWT Settings
+                       
             Services.AddSingleton(bindJwtSettings);
 
             Services

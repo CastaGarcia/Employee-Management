@@ -1,4 +1,4 @@
-﻿namespace Employees.Management
+﻿namespace Employees.Management.Models
 {
     public class JwtSettings
     {        

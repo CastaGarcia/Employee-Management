@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management", "Management\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Management.Services", "Employee.Management.Services\Employees.Management.Services.csproj", "{2970E19A-3D7F-4C6F-8658-787ECE473CCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Managemente.Api.IntegrationTest", "Employees.Managemente.Api.IntegrationTest\Employees.Managemente.Api.IntegrationTest.csproj", "{F3076FC5-0147-4E98-B6DA-02510422D23C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{2970E19A-3D7F-4C6F-8658-787ECE473CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2970E19A-3D7F-4C6F-8658-787ECE473CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2970E19A-3D7F-4C6F-8658-787ECE473CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3076FC5-0147-4E98-B6DA-02510422D23C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3076FC5-0147-4E98-B6DA-02510422D23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3076FC5-0147-4E98-B6DA-02510422D23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3076FC5-0147-4E98-B6DA-02510422D23C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{09B3CD82-91B5-4D27-A5AB-4B101372BDDA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E6E35B60-A4C2-4EB8-A0C6-A5294FFB07FD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{2970E19A-3D7F-4C6F-8658-787ECE473CCB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{F3076FC5-0147-4E98-B6DA-02510422D23C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2ACDA371-B3A4-45A0-BCB9-C70F5FB13BD3}
