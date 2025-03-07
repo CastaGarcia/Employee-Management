@@ -20,7 +20,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetToken(UserLogin userLogin)
+        public IActionResult GetToken(User userLoged)
         {
 
             try
@@ -28,7 +28,7 @@ namespace Employees.Management.Api.Controllers
                 var Token = new UserTokens();
 
                 var searchUser = _appDbContext.Users
-                    .FirstOrDefault(user => user.UserName == userLogin.UserName && user.PassWord == userLogin.PassWord);
+                    .FirstOrDefault(user => user.UserName == userLoged.UserName && user.PassWord == userLoged.PassWord);
 
                 if (searchUser == null)
                     return BadRequest("Invalid username or password.");

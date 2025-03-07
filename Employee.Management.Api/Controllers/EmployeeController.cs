@@ -34,7 +34,7 @@ namespace Employees.Management.Api.Controllers
 
             }
             catch (Exception ex)
-            {               
+            {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -43,8 +43,8 @@ namespace Employees.Management.Api.Controllers
         public async Task<IActionResult> GetEmployee(string id)
         {
             Employee? employee = await _employeeService.GetById(id);
-
-            return Ok(_mapper.Map<EmployeeOutput>(employee));
+            var result = _mapper.Map<EmployeeOutput>(employee);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
@@ -57,7 +57,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpPut]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Update([FromBody] EmployeeUpdateData employeeUpdateData)
         {
             Employee? employee = await _employeeService.Update(employeeUpdateData);

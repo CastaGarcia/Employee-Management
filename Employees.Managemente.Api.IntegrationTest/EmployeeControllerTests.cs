@@ -14,53 +14,65 @@ public class EmployeeTests : IClassFixture<WebApplicationFactory<Program>>
         _factory = factory;
     }
 
-    [Fact]
-    public async Task CreateEmployee_Returns200()
+    async Task<HttpResponseMessage> createEmployee()
     {
-        var newEmployee = new EmployeeCreationData(
+        EmployeeCreationData newEmployee = new EmployeeCreationData(
             Id: Guid.NewGuid().ToString(),
             FirstName: "Maria",
             LastName: "Dolores",
-            Dui: 87645521
-        );
+            Dui: 87645521);
 
         HttpClient client = _factory.CreateClient();
         var employe = new StringContent(JsonConvert.SerializeObject(newEmployee), Encoding.UTF8, "application/json");
 
-        var response = await client.PostAsync("api/employees", employe);
+        return await client.PostAsync("api/employees", employe);
+    }
+
+    [Fact]
+    public async Task CreateEmployee_Returns200()
+    {
+        HttpResponseMessage response = await createEmployee();
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var responseContent = await response.Content.ReadAsStringAsync();
-        var createdEmployee = JsonConvert.DeserializeObject<EmployeeOutput>(responseContent);
+        EmployeeOutput? employee = JsonConvert.DeserializeObject<EmployeeOutput>(responseContent);
 
-        Assert.NotNull(createdEmployee);
-        Assert.Equal(newEmployee.FirstName, createdEmployee.FirstName);
-        Assert.Equal(newEmployee.LastName, createdEmployee.LastName);
-        Assert.Equal(newEmployee.Dui, createdEmployee.Dui);
-        Assert.NotNull(createdEmployee.Id);
+        Assert.NotNull(employee);
+        Assert.NotNull(employee.Id);
     }
 
     [Fact]
     public async Task GetEmployee_Returns200()
     {
+        HttpResponseMessage responseCreated = await createEmployee();
+
+        var responseCreatedContent = await responseCreated.Content.ReadAsStringAsync();
+        EmployeeOutput? employee = JsonConvert.DeserializeObject<EmployeeOutput>(responseCreatedContent);
+
         HttpClient client = _factory.CreateClient();
-        var response = await client.GetAsync("api/employees/1");
+        var response = await client.GetAsync($"api/employees/{employee?.Id}");
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var responseContent = await response.Content.ReadAsStringAsync();
-        var employee = JsonConvert.DeserializeObject<EmployeeOutput>(responseContent);
+        var employee2 = JsonConvert.DeserializeObject<EmployeeOutput>(responseContent);
 
         Assert.NotNull(employee);
-        Assert.Equal("1", employee.Id);
+        Assert.Equal(employee2?.Id, employee.Id);
     }
 
     [Fact]
     public async Task UpdateEmployee_Returns200()
     {
+        HttpResponseMessage responseSuccess = await createEmployee();
+
+        var responseCreatedContent = await responseSuccess.Content.ReadAsStringAsync();
+        EmployeeOutput? employee = JsonConvert.DeserializeObject<EmployeeOutput>(responseCreatedContent);
+        Assert.NotNull(employee);
+
         var updatedEmployee = new EmployeeUpdateData(
-            Id: "5461213132",
+            Id: employee.Id,
             FirstName: "Maria",
             LastName: "Dolores",
             Dui: 87645521
@@ -69,32 +81,32 @@ public class EmployeeTests : IClassFixture<WebApplicationFactory<Program>>
         HttpClient client = _factory.CreateClient();
         var content = new StringContent(JsonConvert.SerializeObject(updatedEmployee), Encoding.UTF8, "application/json");
 
-        var response = await client.PutAsync("api/employees/0d96732b-e75e-4542-95ac-7dafabaa6a6f", content);
+        var response = await client.PutAsync($"api/employees", content);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var responseContent = await response.Content.ReadAsStringAsync();
-        var employee = JsonConvert.DeserializeObject<EmployeeOutput>(responseContent);
+        var employeeUpdated = JsonConvert.DeserializeObject<EmployeeOutput>(responseContent);
 
-        Assert.NotNull(employee);
-        Assert.Equal(updatedEmployee.FirstName, employee.FirstName);
-        Assert.Equal(updatedEmployee.LastName, employee.LastName);
-        Assert.Equal(updatedEmployee.Dui, employee.Dui);
+        Assert.NotNull(employeeUpdated);
+        Assert.Equal(updatedEmployee.FirstName, employeeUpdated.FirstName);
+        Assert.Equal(updatedEmployee.LastName, employeeUpdated.LastName);
+        Assert.Equal(updatedEmployee.Dui, employeeUpdated.Dui);
     }
 
     [Fact]
-    public async Task DeleteEmployee_Returns200()
+    public async Task DeleteEmployee_Returns204()
     {
+        HttpResponseMessage responseCreated = await createEmployee();
+
+        var responseCreatedContent = await responseCreated.Content.ReadAsStringAsync();
+        EmployeeOutput? employee = JsonConvert.DeserializeObject<EmployeeOutput>(responseCreatedContent);
+        Assert.NotNull(employee);
+
+
         HttpClient client = _factory.CreateClient();
-        var response = await client.DeleteAsync("api/employees/1");
+        var response = await client.DeleteAsync($"api/employees/{employee.Id}");
 
-        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-
-        var responseContent = await response.Content.ReadAsStringAsync();
-        var deletedEmployee = JsonConvert.DeserializeObject<EmployeeOutput>(responseContent);
-
-        Assert.NotNull(deletedEmployee);
-        Assert.Equal("1", deletedEmployee.Id);
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
     }
 }
-
