@@ -1,0 +1,57 @@
+﻿@page "/register"
+
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@using MudBlazor
+
+<!-- Aquí va tu MudAppBar (Navbar) -->
+
+<MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
+    <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center" Style="height: 50%;">
+        <MudItem xs="12" sm="8" md="6" lg="4">
+            <MudPaper Class="pa-4">
+                <!-- Título "REGISTER" centrado -->
+                <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">REGISTER</MudText>
+
+                <!-- Formulario -->
+                <EditForm FormName="Regsiter" Model="userRegister" OnValidSubmit="OnValidSubmit" @ref="editForm">
+                    <DataAnnotationsValidator />
+
+                    <!-- Campo de Username -->
+                    <MudTextField Label="Username" @bind-Value="userRegister.UserName" For="@(() => userRegister.UserName)" FullWidth="true" />
+
+                    <!-- Campo de Password -->
+                    <MudTextField Label="Password" @bind-Value="userRegister.PassWord" For="@(() => userRegister.PassWord)" InputType="InputType.Password" FullWidth="true" />
+
+                    <MudPaper Class="pa-4 mt-4">
+                        <!-- Botón de registro alineado a la derecha -->
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" DropShadow="false" ButtonType="ButtonType.Submit" Class="ml-auto d-flex">Register</MudButton>
+                    </MudPaper>
+                </EditForm>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code {
+    public class UsergisterVM
+    {
+        [Required]
+        [StringLength(50, ErrorMessage = "Name length can't be more than 50.")]
+        public string UserName { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "Password length can't be more than 100.")]
+        public string PassWord { get; set; }
+    }
+
+    private UsergisterVM userRegister = new UsergisterVM();
+    private EditForm? editForm = new();
+
+    private void OnValidSubmit()
+    {
+        editForm?.EditContext.Validate();
+        Console.WriteLine($"Usuario: {userRegister.UserName}, Contraseña: {userRegister.PassWord}");
+    }
+}
+

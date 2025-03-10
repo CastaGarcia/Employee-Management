@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Managemente.Api.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Management.Api.IntegrationTest", "User.Management.Api.IntegrationTest\User.Management.Api.IntegrationTest.csproj", "{CCE48932-F229-487C-B34A-C7ED618643CF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{8F59FB07-6714-4BC8-87F6-E498BA538B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Web", "Management.Web\Management.Web\Management.Web.csproj", "{114DBDCD-045E-454F-A772-9C64B323474C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,10 @@ Global
 		{CCE48932-F229-487C-B34A-C7ED618643CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCE48932-F229-487C-B34A-C7ED618643CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCE48932-F229-487C-B34A-C7ED618643CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{114DBDCD-045E-454F-A772-9C64B323474C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114DBDCD-045E-454F-A772-9C64B323474C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114DBDCD-045E-454F-A772-9C64B323474C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114DBDCD-045E-454F-A772-9C64B323474C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +72,7 @@ Global
 		{2970E19A-3D7F-4C6F-8658-787ECE473CCB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{F3076FC5-0147-4E98-B6DA-02510422D23C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{CCE48932-F229-487C-B34A-C7ED618643CF} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{114DBDCD-045E-454F-A772-9C64B323474C} = {8F59FB07-6714-4BC8-87F6-E498BA538B1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2ACDA371-B3A4-45A0-BCB9-C70F5FB13BD3}

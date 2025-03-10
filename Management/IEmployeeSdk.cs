@@ -8,35 +8,22 @@ namespace Management
     {
         private const string BASEURL = "api/employees";
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="employeeCreationData"></param>
-        /// <returns></returns>
+        
         [Post(BASEURL)]
         Task<EmployeeOutput> Create([Body] EmployeeCreationData employeeCreationData);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
+        
         [Get(BASEURL + "{Id}")]
         Task<EmployeeOutput> GetEmployee(string id);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
+        [Get(BASEURL)]
+        Task<PaginatedListOutput<EmployeeOutput>> GetEmployee([Query] EmployeeGetFilter employeeGetFilter);
+
+
         [Delete(BASEURL + "{Id}")]
         Task<EmployeeOutput> DeleteEmployee(string id);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="employeeUpdateData"></param>
-        /// <returns></returns>
+        
         [Put(BASEURL)]
         Task<EmployeeOutput> Put([Body] EmployeeUpdateData employeeUpdateData);
     }

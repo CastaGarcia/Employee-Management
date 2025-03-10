@@ -15,4 +15,7 @@
     /// <param name="PassWord"></param>
     ///  /// <param name="Id"></param>
     public record UserUpdateData(string Id, string UserName, string PassWord);
+
+    public record userLogin(string UserName, string PassWord);
+
 }

@@ -1,5 +1,6 @@
 ﻿using Employees.Management.Data;
 using Employees.Management.Models;
+using Management;
 using Management.Inputs;
 
 namespace Employees.Management.Services.Employees
@@ -12,7 +13,6 @@ namespace Employees.Management.Services.Employees
         {
             _employeeRepo = employeeRepo;
         }
-
         public async Task<Employee?> Create(EmployeeCreationData employeeCreationData)
         {
             if (string.IsNullOrEmpty(employeeCreationData.Id) == false)
@@ -55,7 +55,14 @@ namespace Employees.Management.Services.Employees
             return employeExist;
         }
 
-        public async Task<Employee> Update(EmployeeUpdateData employeeUpdateData)
+        public async Task<PaginatedListOutput<Employee>> GetEmployeesByFilter(EmployeeGetFilter employeeGetFilter)
+        {
+            var paginatedEmployees = await _employeeRepo.GetEmployeesByFilter(employeeGetFilter);
+
+
+            return paginatedEmployees;
+        }
+        public async Task<Employee?> Update(EmployeeUpdateData employeeUpdateData)
         {
             if (string.IsNullOrEmpty(employeeUpdateData.Id))
                 throw new Exception("the Id is empty");
@@ -67,7 +74,7 @@ namespace Employees.Management.Services.Employees
             employeExist.FirstName = employeeUpdateData.FirstName;
             employeExist.LastName = employeeUpdateData.LastName;
             employeExist.Dui = employeeUpdateData.Dui;
-    
+
             await _employeeRepo.SaveChangesAsync();
             return employeExist;
         }

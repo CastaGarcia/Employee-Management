@@ -33,7 +33,7 @@ namespace Employees.Management.Api.Controllers
 
         [HttpGet("{id}")]
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
-        public async Task<IActionResult> GetEmployee(string id)
+        public async Task<IActionResult> GetUser(string id)
         {
             User? user = await _userService.GetById(id);
 

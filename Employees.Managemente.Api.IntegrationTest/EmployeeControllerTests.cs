@@ -1,4 +1,5 @@
-﻿using Management.Inputs;
+﻿using Management;
+using Management.Inputs;
 using Management.Outputs;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
@@ -41,6 +42,38 @@ public class EmployeeTests : IClassFixture<WebApplicationFactory<Program>>
         Assert.NotNull(employee);
         Assert.NotNull(employee.Id);
     }
+
+    [Fact]
+    public async Task GetEmployeesByFilterReturnsPaginatedEmployees()
+    {
+        var filters = new EmployeeGetFilter(
+            NameContains: "Maria",
+            Page: 1,
+            ItemsPerPage: 5
+        );
+
+        HttpClient client = _factory.CreateClient();
+
+        var response = await client.GetAsync($"api/employees?NameContains={filters.NameContains}&Page={filters.Page}&ItemsPerPage={filters.ItemsPerPage}");
+
+        Assert.True(response.IsSuccessStatusCode, $"Expected OK status but got {response.StatusCode}");
+
+        var responseContent = await response.Content.ReadAsStringAsync();
+        PaginatedListOutput<EmployeeOutput>? employeesResult = JsonConvert.DeserializeObject<PaginatedListOutput<EmployeeOutput>>(responseContent);
+
+        Assert.NotNull(employeesResult);
+        Assert.NotEmpty(employeesResult.Items);
+
+        foreach (var employee in employeesResult.Items)
+        {
+            Assert.Contains(filters.NameContains, employee.FirstName);
+        }
+
+        Assert.True(employeesResult.TotalItemCount >= employeesResult.Items.Count);
+    }
+
+
+
 
     [Fact]
     public async Task GetEmployee_Returns200()
