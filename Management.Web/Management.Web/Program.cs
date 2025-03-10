@@ -15,6 +15,9 @@ builder.Services.AddRefitClient<IEmployeeSdk>()
     .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlEmployeesApi));
 //.AddHttpMessageHandler(sp => sp.GetRequiredService<TokenValidatorMessageHandler>()); ToDo: Add TokenValidator
 
+builder.Services.AddRefitClient<IUserSdk>()
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlUsersApi));
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();

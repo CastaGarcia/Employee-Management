@@ -6,7 +6,7 @@ namespace Management
 {
     public interface IUserSdk
     {
-        private const string BASEURL = "api/users";
+        private const string BASEURL = "/api/users";
 
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace Management
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Get(BASEURL + "{Id}")]
+        [Get(BASEURL + "/{Id}")]
         Task<UserOutput> GetUser(string id);
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Management
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Delete(BASEURL + "{Id}")]
+        [Delete(BASEURL + "/{Id}")]
         Task<UserOutput> DeleteUser(string id);
 
         /// <summary>

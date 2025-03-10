@@ -1,11 +1,6 @@
 ﻿using Management.Inputs;
 using Management.Outputs;
 using Refit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Management
 {
@@ -16,9 +11,7 @@ namespace Management
         /// <summary>
         /// Obtener token de autenticación.
         /// </summary>
-        /// <param name="UserName"></param>
-        /// <param name="PassWord"></param>
-        /// <returns>Token de autenticación</returns>
+        /// <param name="userLoged"></param>
         [Post(BASEURL)]
         Task<UserOutput> GetToken([Body] userLogin userLoged);
     }

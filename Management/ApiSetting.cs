@@ -1,8 +1,5 @@
 ﻿namespace Management
-{
-    /// <summary>
-    /// 
-    /// </summary>
+{    
     public class ApiSetting
     {
         public string UrlManagementApi { get; set; }

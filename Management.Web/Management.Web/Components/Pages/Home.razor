@@ -1,8 +1,18 @@
-﻿@page "/"
+﻿@page "/login"
+@page "/"
 @using Management.Web.Components.Employee
 
-<PageTitle>Home</PageTitle>
-<UserRegister></UserRegister>
-<UserLogin></UserLogin>
-<EmployeesManagement></EmployeesManagement>
+@if (isActenticated)
+{
+    <p>Algo</p>
+}
+else
+{
+    <UserLogin></UserLogin>
+}
+
+@code {
+
+    bool isActenticated = false;
+}
 
