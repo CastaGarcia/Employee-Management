@@ -1,0 +1,83 @@
+﻿@* @page "/employees"
+@using MudBlazor
+@using System.Collections.Generic
+@using Management.Inputs
+@using Management.Outputs
+
+@inject IEmployeeSdk employeeSdk  
+@inject NavigationManager Navigate
+
+<MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
+    <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center" Style="width: 100%;">
+        <MudItem xs="12" sm="10" md="8">
+            <MudPaper Class="pa-4">
+                <MudText Typo="Typo.h4" Align="Align.Center" Class="mb-4" Style="color: black;">Empleados</MudText>
+
+                <MudTable Items="employees" Hover="true" Bordered="true" Striped="true">
+                    <HeaderContent>
+                        <MudTh>Id</MudTh>
+                        <MudTh>First Name</MudTh>
+                        <MudTh>Last Name</MudTh>
+                        <MudTh>Dui</MudTh>
+                        <MudTh>Acciones</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Id">@context.Id</MudTd>
+                        <MudTd DataLabel="First Name">@context.FirstName</MudTd>
+                        <MudTd DataLabel="Last Name">@context.LastName</MudTd>
+                        <MudTd DataLabel="Dui">@context.Dui</MudTd>
+                        <MudTd DataLabel="Acciones">
+                            <div class="d-flex justify-end">
+                                <MudButton Variant="Variant.Filled"
+                                           Color="Color.Primary"
+                                           DropShadow="false"
+                                           ButtonType="ButtonType.Button"
+                                           Class="mr-2"
+                                           @onclick="() => EditEmployee(context)">
+                                    Editar
+                                </MudButton>
+                                <MudButton Variant="Variant.Filled"
+                                           Color="Color.Error"
+                                           DropShadow="false"
+                                           ButtonType="ButtonType.Button"
+                                           @onclick="() => DeleteEmployee(context.Id)">
+                                    Eliminar
+                                </MudButton>
+                            </div>
+                        </MudTd>
+                    </RowTemplate>
+                </MudTable>
+                <MudPagination Page="filter.Page"
+                               PageCount="pageCount"
+                               OnPageChanged="OnPageChanged" />
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code {
+    private List<EmployeeOutput> employees = new List<EmployeeOutput>();
+    private EmployeeGetFilter filter = new EmployeeGetFilter("Maria", 1, 5); 
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadEmployees();
+    }
+
+    /*private async Task LoadEmployees()
+    {
+        var result = await employeeSdk.GetEmployeesByFilter(filter);
+            employees = result.Items.ToList();        
+    }*/
+
+    private void EditEmployee(EmployeeOutput employee)
+    {
+        Navigate.NavigateTo($"/ToDo: Create New Component.Razor/{employee.Id}");
+    }
+
+    private async Task DeleteEmployee(string id)
+    {        
+            await employeeSdk.DeleteEmployee(id);
+            await LoadEmployees();        
+    }
+} *@

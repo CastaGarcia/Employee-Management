@@ -6,8 +6,7 @@ using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddControllersWithViews();
+
 ApiSetting apiSettings = builder.Configuration.GetSection(nameof(ApiSetting))
                                                      .Get<ApiSetting>()!;
 

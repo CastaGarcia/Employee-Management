@@ -6,7 +6,7 @@ namespace Management
 {
     public interface IEmployeeSdk
     {
-        private const string BASEURL = "api/employees";
+        private const string BASEURL = "/api/employees";
 
         
         [Post(BASEURL)]
@@ -17,7 +17,7 @@ namespace Management
         Task<EmployeeOutput> GetEmployee(string id);
 
         [Get(BASEURL)]
-        Task<PaginatedListOutput<EmployeeOutput>> GetEmployee([Query] EmployeeGetFilter employeeGetFilter);
+        Task<PaginatedListOutput<EmployeeOutput>> GetEmployeesByFilter([Query] EmployeeGetFilter employeeGetFilter);
 
 
         [Delete(BASEURL + "{Id}")]
@@ -25,7 +25,7 @@ namespace Management
 
         
         [Put(BASEURL)]
-        Task<EmployeeOutput> Put([Body] EmployeeUpdateData employeeUpdateData);
+        Task<EmployeeOutput> Update([Body] EmployeeUpdateData employeeUpdateData);
     }
 
 }

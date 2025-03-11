@@ -15,7 +15,7 @@
             <MudPaper Class="pa-4">
                 <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">REGISTER</MudText>
                                
-                <EditForm FormName="Register" Model="userRegister" OnValidSubmit="OnValidSubmit" >
+                <EditForm Model="userRegister" OnValidSubmit="OnValidSubmit">
                     <DataAnnotationsValidator />                    
                     <MudTextField Label="Username" @bind-Value="userRegister.UserName" For="@(() => userRegister.UserName)" FullWidth="true" />
 
@@ -34,16 +34,16 @@
     public class UsergisterVM
     {
         [Required]
-        [StringLength(50, ErrorMessage = "Name length can't be more than 50.")]
+        [MaxLength(50, ErrorMessage = "Name length can't be more than 50.")]
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "Password length can't be more than 100.")]
+        [MaxLength(100, ErrorMessage = "Password length can't be more than 100.")]
         public string PassWord { get; set; }
     }
 
     private UsergisterVM userRegister = new UsergisterVM();
-    private EditForm? editForm = new();
+    //private EditForm? editForm = new();
 
     private async Task OnValidSubmit()
     {      

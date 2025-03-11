@@ -16,6 +16,7 @@ try
     var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddSerilog(); // <-- Add this line
 
+
     // Swagger
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen(options =>
@@ -78,6 +79,23 @@ try
     builder.Services.AddScoped<IUserRepo, UserRepo>();
     builder.Services.AddScoped<IUserServices, UserServices>();
 
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAllOrigins", policy =>
+        {
+            policy.AllowAnyOrigin() // Allows all origins
+                  .AllowAnyMethod()  // Allows all HTTP methods (GET, POST, PUT, DELETE, etc.)
+                  .AllowAnyHeader(); // Allows all headers
+        });
+
+        // If you want to restrict it to certain origins, use this instead:
+        // options.AddPolicy("AllowSpecificOrigins", policy =>
+        // {
+        //     policy.WithOrigins("https://example.com", "https://anotherdomain.com") 
+        //           .AllowAnyMethod()
+        //           .AllowAnyHeader();
+        // });
+    });
 
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
     builder.Services.AddOpenApi();
@@ -100,6 +118,15 @@ try
         app.UseSwaggerUI();
 
         app.MapGet("/", () => Results.Redirect("/swagger"));
+    }
+
+    // Enable CORS globally in the application
+    app.UseCors("AllowAllOrigins"); // <-- Add this line
+
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
     }
 
     // Configure the HTTP request pipeline.
