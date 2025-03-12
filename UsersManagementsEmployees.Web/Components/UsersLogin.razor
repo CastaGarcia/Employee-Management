@@ -51,30 +51,27 @@
 
     private async Task OnValidSubmit()
     {
-        
-            
-            try
-            {
+
+
+        try
+        {
             if (userLogin != null)
             {
                 bool isAuthenticated = await authService.ValidateUserAsync(userLogin.UserName, userLogin.PassWord);
 
                 if (isAuthenticated)
                 {
-                    // Usuario autenticado con éxito, redirige a la página principal
-                    Navigation.NavigateTo("/home");
-                    errorMessage = null;  // Limpiar cualquier mensaje de error
+                    Navigation.NavigateTo("/employees");
+                    errorMessage = null;
                 }
                 else
                 {
-                    // Si la autenticación falla, mostramos un mensaje de error
                     errorMessage = "Nombre de usuario o contraseña incorrectos.";
                 }
             }
         }
         catch (Exception ex)
         {
-            // Si ocurre un error en la llamada a la API o cualquier otro error
             errorMessage = $"Ocurrió un error al intentar autenticar. Intenta nuevamente. {ex.Message}";
         }
     }
