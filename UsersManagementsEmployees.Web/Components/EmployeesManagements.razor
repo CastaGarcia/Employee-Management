@@ -1,4 +1,4 @@
-﻿@*@page "/employees"
+﻿@page "/employees"
 
 @using Management
 @using Management.Inputs
@@ -41,79 +41,69 @@
 </MudContainer>
 
 @code {
-    // Lista para almacenar los empleados
     private List<EmployeeOutput> employees = new List<EmployeeOutput>();
 
-    // Se ejecuta cuando se inicializa la página
     protected override async Task OnInitializedAsync()
     {
-        // Obtener todos los empleados al cargar la página
         await GetAllEmployeesWithoutFilter();
     }
 
-    // Método para obtener todos los empleados sin ningún filtro
     public async Task GetAllEmployeesWithoutFilter()
     {
         List<EmployeeOutput> allEmployees = new List<EmployeeOutput>();
         int page = 1;
-        int pageSize = 10; // Paginación de 10 empleados por página
-        string name = "Maria";
+        int pageSize = 10;
 
         while (true)
         {
-            // Aquí no se utiliza el filtro NameContains, por lo que no se busca por nombre
-            var filter = new EmployeeGetFilter
-                {
-                    NameContains = name,
-                    Page = page,
-                    ItemsPerPage = pageSize,
-                    
-                };
+            var filter = new EmployeeGetFilter(
+                NameContains: null,  
+                Page: page,
+                ItemsPerPage: pageSize
+                );
 
             try
             {
-                // Obtener empleados paginados desde el backend usando el filtro sin nombre
                 var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
 
-                // Si hay empleados, agregar los resultados a la lista
+               
                 if (paginatedEmployees.Items.Any())
                 {
-                    allEmployees.AddRange(paginatedEmployees.Items); // Agregar empleados obtenidos
-                    page++; // Aumentar la página para obtener la siguiente
+                    allEmployees.AddRange(paginatedEmployees.Items); 
+                    page++;
                 }
                 else
                 {
-                    break; // No hay más empleados, terminamos el bucle
+                    break; 
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al obtener los empleados: {ex.Message}");
-                break; // Si ocurre un error, detenemos el bucle
+                break; 
             }
         }
 
-        // Asignar todos los empleados obtenidos a la lista de empleados
         employees = allEmployees;
     }
 
-    // Método para editar un empleado (redirige a la página de edición)
+  
     private void EditEmployee(string employeeId)
     {
         Navigation.NavigateTo($"/edit-employee/{employeeId}");
     }
 
-    // Método para eliminar un empleado y recargar la lista
+  
     private async Task DeleteEmployee(string employeeId)
     {
         try
         {
             await employeeSdk.DeleteEmployee(employeeId);
-            await GetAllEmployeesWithoutFilter(); // Recargar los empleados después de la eliminación
+            await GetAllEmployeesWithoutFilter(); 
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error deleting employee: {ex.Message}");
         }
     }
-}*@
+}
