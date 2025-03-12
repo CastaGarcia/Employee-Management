@@ -1,6 +1,7 @@
 ﻿using Employees.Management.Models;
 using Management;
 using Management.Inputs;
+using Management.Outputs;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -8,17 +9,17 @@ namespace Employees.Management.Data.Repos
 {
     public class EmployeeRepo : IEmployeeRepo
     {
-        private readonly AppDbContext _db;  
+        private readonly AppDbContext _db;
         public EmployeeRepo(AppDbContext db)
         {
             _db = db;
         }
 
         public async Task AddAsync(Employee employee)
-        {           
-           await _db.Employees.AddAsync(employee);
+        {
+            await _db.Employees.AddAsync(employee);
             await _db.Employees.AddRangeAsync();
-          
+
         }
 
         public async Task<Employee?> GetById(string id)
@@ -31,7 +32,7 @@ namespace Employees.Management.Data.Repos
 
         public void Delete(Employee employee)
         {
-            _db.Employees.Remove(employee);            
+            _db.Employees.Remove(employee);
         }
 
         public async Task SaveChangesAsync()
@@ -54,7 +55,7 @@ namespace Employees.Management.Data.Repos
 
             var items = await _db.Employees
                 .Where(where)
-                .OrderBy(e => e.Id)  
+                .OrderBy(e => e.Id)
                 .Skip(skip)
                 .Take(employeeGetFilter.ItemsPerPage)
                 .ToListAsync();
@@ -63,8 +64,5 @@ namespace Employees.Management.Data.Repos
 
             return new PaginatedListOutput<Employee>(items, totalItems, employeeGetFilter.Page, employeeGetFilter.ItemsPerPage);
         }
-
-
     }
-
 }

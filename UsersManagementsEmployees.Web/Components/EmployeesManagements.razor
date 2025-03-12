@@ -1,5 +1,119 @@
-﻿<h3>EmployeesManagements</h3>
+﻿@*@page "/employees"
+
+@using Management
+@using Management.Inputs
+@using MudBlazor
+@using Management.Outputs
+
+@inject IEmployeeSdk employeeSdk
+@inject NavigationManager Navigation
+
+<PageTitle>Employees</PageTitle>
+
+<MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
+    <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
+        <MudItem xs="12" sm="8" md="6" lg="12">
+            <MudPaper Class="pa-4">       
+                <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Employees</MudText>
+
+                <MudTable Items="employees" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
+                    <HeaderContent>
+                        <MudTh>ID</MudTh>
+                        <MudTh>Name</MudTh>
+                        <MudTh>Apellido</MudTh>
+                        <MudTh>DUI</MudTh>
+                        <MudTh>Actions</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="ID">@context.Id</MudTd>
+                        <MudTd DataLabel="Name">@context.FirstName</MudTd>
+                        <MudTd DataLabel="Apellido">@context.LastName</MudTd>
+                        <MudTd DataLabel="DUI">@context.Dui</MudTd>
+                        <MudTd DataLabel="Actions">
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit">Edit</MudButton>
+                            <MudButton Variant="Variant.Filled" Color="Color.Error" ButtonType="ButtonType.Submit">Delete</MudButton>
+                        </MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
 
 @code {
+    // Lista para almacenar los empleados
+    private List<EmployeeOutput> employees = new List<EmployeeOutput>();
 
-}
+    // Se ejecuta cuando se inicializa la página
+    protected override async Task OnInitializedAsync()
+    {
+        // Obtener todos los empleados al cargar la página
+        await GetAllEmployeesWithoutFilter();
+    }
+
+    // Método para obtener todos los empleados sin ningún filtro
+    public async Task GetAllEmployeesWithoutFilter()
+    {
+        List<EmployeeOutput> allEmployees = new List<EmployeeOutput>();
+        int page = 1;
+        int pageSize = 10; // Paginación de 10 empleados por página
+        string name = "Maria";
+
+        while (true)
+        {
+            // Aquí no se utiliza el filtro NameContains, por lo que no se busca por nombre
+            var filter = new EmployeeGetFilter
+                {
+                    NameContains = name,
+                    Page = page,
+                    ItemsPerPage = pageSize,
+                    
+                };
+
+            try
+            {
+                // Obtener empleados paginados desde el backend usando el filtro sin nombre
+                var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
+
+                // Si hay empleados, agregar los resultados a la lista
+                if (paginatedEmployees.Items.Any())
+                {
+                    allEmployees.AddRange(paginatedEmployees.Items); // Agregar empleados obtenidos
+                    page++; // Aumentar la página para obtener la siguiente
+                }
+                else
+                {
+                    break; // No hay más empleados, terminamos el bucle
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los empleados: {ex.Message}");
+                break; // Si ocurre un error, detenemos el bucle
+            }
+        }
+
+        // Asignar todos los empleados obtenidos a la lista de empleados
+        employees = allEmployees;
+    }
+
+    // Método para editar un empleado (redirige a la página de edición)
+    private void EditEmployee(string employeeId)
+    {
+        Navigation.NavigateTo($"/edit-employee/{employeeId}");
+    }
+
+    // Método para eliminar un empleado y recargar la lista
+    private async Task DeleteEmployee(string employeeId)
+    {
+        try
+        {
+            await employeeSdk.DeleteEmployee(employeeId);
+            await GetAllEmployeesWithoutFilter(); // Recargar los empleados después de la eliminación
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error deleting employee: {ex.Message}");
+        }
+    }
+}*@

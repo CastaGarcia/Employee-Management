@@ -4,8 +4,6 @@ using Employees.Management.Services;
 using Management;
 using Management.Inputs;
 using Management.Outputs;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Employees.Management.Api.Controllers
@@ -42,15 +40,16 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpGet]
-       // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> GetByFilter([FromQuery] EmployeeGetFilter employeeGetFilter)
         {
             var employees = await _employeeService.GetEmployeesByFilter(employeeGetFilter);
-            var result = _mapper.Map <PaginatedListOutput<EmployeeOutput>>(employees);
+            var result = _mapper.Map<PaginatedListOutput<EmployeeOutput>>(employees);
 
             return Ok(result);
         }
 
+        
         [HttpDelete("{id}")]
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> DeleteEmployee(string id)

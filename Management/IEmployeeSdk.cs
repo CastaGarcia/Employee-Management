@@ -18,7 +18,7 @@ namespace Management
 
         [Get(BASEURL)]
         Task<PaginatedListOutput<EmployeeOutput>> GetEmployeesByFilter([Query] EmployeeGetFilter employeeGetFilter);
-
+        
 
         [Delete(BASEURL + "{Id}")]
         Task<EmployeeOutput> DeleteEmployee(string id);
@@ -29,3 +29,4 @@ namespace Management
     }
 
 }
+

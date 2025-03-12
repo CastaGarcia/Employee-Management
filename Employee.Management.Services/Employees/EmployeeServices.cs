@@ -54,7 +54,6 @@ namespace Employees.Management.Services.Employees
 
             return employeExist;
         }
-
         public async Task<PaginatedListOutput<Employee>> GetEmployeesByFilter(EmployeeGetFilter employeeGetFilter)
         {
             var paginatedEmployees = await _employeeRepo.GetEmployeesByFilter(employeeGetFilter);
@@ -62,6 +61,7 @@ namespace Employees.Management.Services.Employees
 
             return paginatedEmployees;
         }
+      
         public async Task<Employee?> Update(EmployeeUpdateData employeeUpdateData)
         {
             if (string.IsNullOrEmpty(employeeUpdateData.Id))

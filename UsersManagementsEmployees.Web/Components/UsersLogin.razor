@@ -1,6 +1,10 @@
-﻿@*@using System.Text.RegularExpressions
+﻿@using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
 @using MudBlazor
+@using Management
+
+@inject AuthService authService
+@inject NavigationManager Navigation
 
 <MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
     <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center" Style="height: 50%;">
@@ -8,7 +12,7 @@
             <MudPaper Class="pa-4">       
                 <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">LOGIN</MudText>
 
-                <EditForm FormName="Login" Model="userLogin" OnValidSubmit="OnValidSubmit" @ref="editForm">
+                <EditForm FormName="Login" Model="userLogin" OnValidSubmit="OnValidSubmit" >
                     <DataAnnotationsValidator />
 
                     <MudTextField Label="USUARIO" @bind-Value="userLogin.UserName" For="@(() => userLogin.UserName)" FullWidth="true" />
@@ -20,14 +24,9 @@
                             Registrarte
                         </MudLink>
                     </div>
-
-
-
-
-
                     <MudPaper Class="pa-8 mt-6">
                         <MudButton Variant="Variant.Filled" Color="Color.Primary" DropShadow="false" ButtonType="ButtonType.Submit" Class="mx-auto d-flex"
-                                   Style="width: 250px; height: 50px; font-size: 20px;">INICIAR SESION</MudButton>
+                        Style="width: 250px; height: 50px; font-size: 20px;">INICIAR SESION</MudButton>
                     </MudPaper>
                 </EditForm>
             </MudPaper>
@@ -35,7 +34,7 @@
     </MudGrid>
 </MudContainer>
 
-@code {   
+@code {
     public class UserLoginVM
     {
         [Required]
@@ -47,12 +46,36 @@
         public string PassWord { get; set; }
     }
 
-    private UserLoginVM userLogin = new UserLoginVM();
-    private EditForm? editForm = new();
+    private UserLoginVM userLogin = new UserLoginVM();    
+    private string? errorMessage;
 
-    private void OnValidSubmit()
+    private async Task OnValidSubmit()
     {
-        editForm?.EditContext.Validate();
-        Console.WriteLine($"Usuario: {userLogin.UserName}, Contraseña: {userLogin.PassWord}");
+        
+            
+            try
+            {
+            if (userLogin != null)
+            {
+                bool isAuthenticated = await authService.ValidateUserAsync(userLogin.UserName, userLogin.PassWord);
+
+                if (isAuthenticated)
+                {
+                    // Usuario autenticado con éxito, redirige a la página principal
+                    Navigation.NavigateTo("/home");
+                    errorMessage = null;  // Limpiar cualquier mensaje de error
+                }
+                else
+                {
+                    // Si la autenticación falla, mostramos un mensaje de error
+                    errorMessage = "Nombre de usuario o contraseña incorrectos.";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Si ocurre un error en la llamada a la API o cualquier otro error
+            errorMessage = $"Ocurrió un error al intentar autenticar. Intenta nuevamente. {ex.Message}";
+        }
     }
-}*@
+}

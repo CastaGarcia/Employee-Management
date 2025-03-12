@@ -1,7 +1,20 @@
-﻿@page "/"
+﻿@page "/login"
+@page "/"
+@using UsersManagementsEmployees.Web.Components
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Users</PageTitle>
 
-<h1>Hello, world!</h1>
+@if (isActenticated)
+{
+    <EmployeesManagements></EmployeesManagements>
+}
+else
+{
+    <UsersLogin></UsersLogin>
+}
 
-Welcome to your new app.
+@code {
+
+    bool isActenticated = false;
+}
+

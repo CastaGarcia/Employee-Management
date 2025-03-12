@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Employees.Management.Api.Controllers
 {
-    [Route("api/Tokens")]
+    [Route("/api/Tokens")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -21,19 +21,19 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> GetToken([FromBody] User userLoged)
+        public async Task<IActionResult> GetToken([FromBody] UserLogin userLoged)
         {
             try
             {
                 var Token = new UserTokens();
 
-                
+
                 var searchUser = await _appDbContext.Users
                     .FirstOrDefaultAsync(user => user.UserName == userLoged.UserName && user.PassWord == userLoged.PassWord);
-                                
+
                 if (searchUser == null)
                     return BadRequest("Invalid username or password.");
-                                
+
                 Token = JwtHelpers.GenTokenKey(new UserTokens()
                 {
                     UserName = searchUser.UserName,
@@ -41,6 +41,8 @@ namespace Employees.Management.Api.Controllers
                     Id = searchUser.Id,
                     GuidId = Guid.NewGuid(),
                 }, _jwtSettings);
+
+                Console.WriteLine($"Generated Token: {Token.Token}"); // checkToken
 
                 return Ok(Token);
             }
