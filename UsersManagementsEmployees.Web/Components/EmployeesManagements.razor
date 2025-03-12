@@ -53,11 +53,12 @@
         List<EmployeeOutput> allEmployees = new List<EmployeeOutput>();
         int page = 1;
         int pageSize = 10;
+        string nameFilter = null;
 
-        while (true)
+        while (allEmployees.Count < 10)
         {
             var filter = new EmployeeGetFilter(
-                NameContains: null,  
+                NameContains: string.IsNullOrEmpty(nameFilter) ? null : nameFilter,
                 Page: page,
                 ItemsPerPage: pageSize
                 );
@@ -85,12 +86,13 @@
         }
 
         employees = allEmployees;
+        StateHasChanged();
     }
 
   
     private void EditEmployee(string employeeId)
     {
-        Navigation.NavigateTo($"/edit-employee/{employeeId}");
+        Navigation.NavigateTo($"/ToDo:/{employeeId}");
     }
 
   
