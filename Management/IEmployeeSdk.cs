@@ -6,7 +6,7 @@ namespace Management
 {
     public interface IEmployeeSdk
     {
-        private const string BASEURL = "/api/employees";
+        private const string BASEURL = "/employees";
 
         
         [Post(BASEURL)]

@@ -1920,3 +1920,363 @@ ORDER BY "MigrationId";
 2025-03-10 19:53:34.568 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
 2025-03-10 19:53:34.590 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 22.4044 ms
 2025-03-10 19:53:34.594 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.2606ms
+2025-03-10 22:37:53.458 -06:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 22:37:53.932 -06:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-10 22:37:53.949 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-10 22:37:53.950 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-10 22:37:53.951 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 22:37:53.958 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-10 22:37:54.183 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-10 22:37:54.696 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-10 22:37:54.696 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-10 22:37:55.077 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-10 22:37:55.077 -06:00 [INF] Hosting environment: Development
+2025-03-10 22:37:55.078 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-10 22:37:56.326 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-10 22:37:56.782 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-10 22:37:56.812 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-10 22:37:56.813 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-10 22:37:56.817 -06:00 [INF] HTTP GET / responded 302 in 51.3431 ms
+2025-03-10 22:37:56.832 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 522.9987ms
+2025-03-10 22:37:56.852 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-10 22:37:56.994 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 129.2178 ms
+2025-03-10 22:37:56.997 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 151.044ms
+2025-03-10 22:37:57.004 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/swagger-ui.css - null null
+2025-03-10 22:37:57.004 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.css - null null
+2025-03-10 22:37:57.004 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-10 22:37:57.004 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/swagger-ui-bundle.js - null null
+2025-03-10 22:37:57.005 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/swagger-ui-standalone-preset.js - null null
+2025-03-10 22:37:57.060 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-10 22:37:57.095 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-10 22:37:57.122 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 27.0768 ms
+2025-03-10 22:37:57.123 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 42.3191ms
+2025-03-10 22:37:57.128 -06:00 [INF] The file /swagger-ui-bundle.js was not modified
+2025-03-10 22:37:57.129 -06:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2025-03-10 22:37:57.128 -06:00 [INF] The file /index.css was not modified
+2025-03-10 22:37:57.128 -06:00 [INF] The file /swagger-ui.css was not modified
+2025-03-10 22:37:57.130 -06:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 70.3258 ms
+2025-03-10 22:37:57.130 -06:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 70.0244 ms
+2025-03-10 22:37:57.130 -06:00 [INF] HTTP GET /swagger/index.css responded 304 in 70.3252 ms
+2025-03-10 22:37:57.131 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.css - 304 null text/css 126.753ms
+2025-03-10 22:37:57.131 -06:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 70.9778 ms
+2025-03-10 22:37:57.130 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/swagger-ui-standalone-preset.js - 304 null text/javascript 125.9179ms
+2025-03-10 22:37:57.132 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/swagger-ui-bundle.js - 304 null text/javascript 127.325ms
+2025-03-10 22:37:57.132 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/swagger-ui.css - 304 null text/css 128.2597ms
+2025-03-10 22:37:57.137 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 133.25ms
+2025-03-10 22:37:57.201 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 140.9937ms
+2025-03-10 22:37:57.388 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-10 22:37:57.423 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 34.9074 ms
+2025-03-10 22:37:57.427 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 38.9211ms
+2025-03-10 22:45:16.386 -06:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 22:45:16.698 -06:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-10 22:45:16.708 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-10 22:45:16.709 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-10 22:45:16.710 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 22:45:16.714 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-10 22:45:16.902 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-10 22:45:17.403 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-10 22:45:17.403 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-10 22:45:17.891 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-10 22:45:17.891 -06:00 [INF] Hosting environment: Development
+2025-03-10 22:45:17.891 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-10 22:45:18.493 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-10 22:45:18.805 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-10 22:45:18.818 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-10 22:45:18.818 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-10 22:45:18.820 -06:00 [INF] HTTP GET / responded 302 in 18.9484 ms
+2025-03-10 22:45:18.826 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 352.539ms
+2025-03-10 22:45:18.837 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-10 22:45:18.900 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 57.6445 ms
+2025-03-10 22:45:18.901 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 64.234ms
+2025-03-10 22:45:18.908 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-10 22:45:18.908 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-10 22:45:18.909 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-10 22:45:18.953 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 37.3842 ms
+2025-03-10 22:45:18.953 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 44.9779ms
+2025-03-10 22:45:18.971 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 62.2899ms
+2025-03-10 22:45:19.009 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 100.2135ms
+2025-03-10 22:45:19.179 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-10 22:45:19.204 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 24.3516 ms
+2025-03-10 22:45:19.205 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.9384ms
+2025-03-10 23:08:09.025 -06:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:08:09.424 -06:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-10 23:08:09.438 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-10 23:08:09.439 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-10 23:08:09.441 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:08:09.447 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-10 23:08:10.068 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-10 23:08:10.527 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-10 23:08:10.527 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-10 23:08:10.742 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-10 23:08:10.743 -06:00 [INF] Hosting environment: Development
+2025-03-10 23:08:10.743 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-10 23:08:11.482 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-10 23:08:11.846 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-10 23:08:11.863 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-10 23:08:11.864 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-10 23:08:11.866 -06:00 [INF] HTTP GET / responded 302 in 26.2582 ms
+2025-03-10 23:08:11.877 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 407.9234ms
+2025-03-10 23:08:11.890 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-10 23:08:11.961 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 65.9947 ms
+2025-03-10 23:08:11.961 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 71.7901ms
+2025-03-10 23:08:11.971 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-10 23:08:11.971 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-10 23:08:11.972 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-10 23:08:11.976 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 1.1032 ms
+2025-03-10 23:08:11.976 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 5.317ms
+2025-03-10 23:08:12.027 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 56.5661ms
+2025-03-10 23:08:12.043 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 71.7136ms
+2025-03-10 23:08:12.181 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-10 23:08:12.202 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 20.5676 ms
+2025-03-10 23:08:12.204 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.8411ms
+2025-03-10 23:26:30.630 -06:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:26:30.941 -06:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-10 23:26:30.949 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-10 23:26:30.950 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-10 23:26:30.951 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:26:30.955 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-10 23:26:31.086 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-10 23:26:31.331 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-10 23:26:31.331 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-10 23:26:31.451 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-10 23:26:31.451 -06:00 [INF] Hosting environment: Development
+2025-03-10 23:26:31.451 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-10 23:26:32.763 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-10 23:26:33.288 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-10 23:26:33.307 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-10 23:26:33.307 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-10 23:26:33.309 -06:00 [INF] HTTP GET / responded 302 in 29.6466 ms
+2025-03-10 23:26:33.321 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 567.575ms
+2025-03-10 23:26:33.347 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-10 23:26:33.464 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 106.4713 ms
+2025-03-10 23:26:33.465 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 118.276ms
+2025-03-10 23:26:33.475 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-10 23:26:33.477 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-10 23:26:33.482 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 1.3523 ms
+2025-03-10 23:26:33.482 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 5.2782ms
+2025-03-10 23:26:33.483 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-10 23:26:33.512 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 36.9809ms
+2025-03-10 23:26:33.595 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 111.9394ms
+2025-03-10 23:26:33.767 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-10 23:26:33.786 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 18.5984 ms
+2025-03-10 23:26:33.787 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.1123ms
+2025-03-10 23:27:20.422 -06:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:27:20.897 -06:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-10 23:27:20.904 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-10 23:27:20.905 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-10 23:27:20.906 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:27:20.909 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-10 23:27:21.046 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-10 23:27:21.476 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-10 23:27:21.476 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-10 23:27:21.685 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-10 23:27:21.685 -06:00 [INF] Hosting environment: Development
+2025-03-10 23:27:21.685 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-10 23:27:22.450 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-10 23:27:22.810 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-10 23:27:22.822 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-10 23:27:22.822 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-10 23:27:22.825 -06:00 [INF] HTTP GET / responded 302 in 24.5886 ms
+2025-03-10 23:27:22.834 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 397.6591ms
+2025-03-10 23:27:22.851 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-10 23:27:22.945 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 82.3351 ms
+2025-03-10 23:27:22.946 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 94.6284ms
+2025-03-10 23:27:22.955 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-10 23:27:22.955 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-10 23:27:22.956 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-10 23:27:22.963 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 1.2121 ms
+2025-03-10 23:27:22.964 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 8.8255ms
+2025-03-10 23:27:22.970 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 15.3278ms
+2025-03-10 23:27:23.020 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.0557ms
+2025-03-10 23:27:23.233 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-10 23:27:23.273 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 39.2075 ms
+2025-03-10 23:27:23.302 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 72.8366ms
+2025-03-10 23:28:20.483 -06:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:28:20.773 -06:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-10 23:28:20.782 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-10 23:28:20.783 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-10 23:28:20.783 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:28:20.786 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-10 23:28:20.912 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-10 23:28:21.247 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-10 23:28:21.247 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-10 23:28:21.744 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-10 23:28:21.744 -06:00 [INF] Hosting environment: Development
+2025-03-10 23:28:21.744 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-10 23:28:22.543 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-10 23:28:22.844 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-10 23:28:22.853 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-10 23:28:22.854 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-10 23:28:22.857 -06:00 [INF] HTTP GET / responded 302 in 21.8356 ms
+2025-03-10 23:28:22.867 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 336.9697ms
+2025-03-10 23:28:22.882 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-10 23:28:22.956 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 65.9828 ms
+2025-03-10 23:28:22.957 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 75.1299ms
+2025-03-10 23:28:22.966 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-10 23:28:22.966 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-10 23:28:22.966 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-10 23:28:22.971 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 1.4943 ms
+2025-03-10 23:28:22.972 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 5.1611ms
+2025-03-10 23:28:22.988 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 21.9598ms
+2025-03-10 23:28:23.084 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 117.5591ms
+2025-03-10 23:28:23.200 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-10 23:28:23.250 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 48.1491 ms
+2025-03-10 23:28:23.252 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.2638ms
+2025-03-10 23:29:33.984 -06:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:29:34.246 -06:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-10 23:29:34.255 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-10 23:29:34.256 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-10 23:29:34.257 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:29:34.262 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-10 23:29:34.413 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-10 23:29:35.297 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-10 23:29:35.297 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-10 23:29:35.669 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-10 23:29:35.670 -06:00 [INF] Hosting environment: Development
+2025-03-10 23:29:35.671 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-10 23:29:35.735 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-10 23:29:36.091 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-10 23:29:36.102 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-10 23:29:36.103 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-10 23:29:36.105 -06:00 [INF] HTTP GET / responded 302 in 22.0741 ms
+2025-03-10 23:29:36.117 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 393.8231ms
+2025-03-10 23:29:36.136 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-10 23:29:36.228 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 80.5216 ms
+2025-03-10 23:29:36.229 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 93.479ms
+2025-03-10 23:29:36.242 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-10 23:29:36.243 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-10 23:29:36.243 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-10 23:29:36.247 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 1.0739 ms
+2025-03-10 23:29:36.248 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 4.9265ms
+2025-03-10 23:29:36.261 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 19.2822ms
+2025-03-10 23:29:36.318 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 75.3672ms
+2025-03-10 23:29:36.574 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-10 23:29:36.599 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 23.6765 ms
+2025-03-10 23:29:36.600 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.8312ms
+2025-03-10 23:30:59.933 -06:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:31:00.270 -06:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-10 23:31:00.278 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-10 23:31:00.280 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-10 23:31:00.280 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-10 23:31:00.283 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-10 23:31:00.432 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-10 23:31:00.721 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-10 23:31:00.721 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-10 23:31:00.769 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-10 23:31:00.769 -06:00 [INF] Hosting environment: Development
+2025-03-10 23:31:00.769 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-10 23:31:02.767 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-10 23:31:03.131 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-10 23:31:03.144 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-10 23:31:03.144 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-10 23:31:03.147 -06:00 [INF] HTTP GET / responded 302 in 21.0186 ms
+2025-03-10 23:31:03.159 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 402.1094ms
+2025-03-10 23:31:03.174 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-10 23:31:03.275 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 94.8805 ms
+2025-03-10 23:31:03.275 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 101.33ms
+2025-03-10 23:31:03.282 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-10 23:31:03.307 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-10 23:31:03.308 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-10 23:31:03.321 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 5.2620 ms
+2025-03-10 23:31:03.321 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 14.5661ms
+2025-03-10 23:31:03.389 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 106.6015ms
+2025-03-10 23:31:03.435 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 127.179ms
+2025-03-10 23:31:03.545 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-10 23:31:03.581 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 35.0180 ms
+2025-03-10 23:31:03.582 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.6388ms
