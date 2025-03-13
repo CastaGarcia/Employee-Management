@@ -7,16 +7,21 @@
 
 @inject IEmployeeSdk employeeSdk
 @inject NavigationManager Navigation
+@inject IDialogService DialogService
 
 <PageTitle>Employees</PageTitle>
 
 <MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
     <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
         <MudItem xs="12" sm="8" md="6" lg="12">
-            <MudPaper Class="pa-4">       
+            <MudPaper Class="pa-4">
                 <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Employees</MudText>
 
-                <MudTable Items="employees" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
+                <MudTextField T="string" Counter="25" HelperText="This field uses Counter prop" Immediate="true" Validation="@(new Func<string, IEnumerable<string>>(MaxCharacters))" Label="Regular" Variant="Variant.Text" />
+
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => SearchEmployee()">Search</MudButton>
+
+                <MudTable Items="filteredEmployees" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
                     <HeaderContent>
                         <MudTh>ID</MudTh>
                         <MudTh>Name</MudTh>
@@ -30,8 +35,8 @@
                         <MudTd DataLabel="Apellido">@context.LastName</MudTd>
                         <MudTd DataLabel="DUI">@context.Dui</MudTd>
                         <MudTd DataLabel="Actions">
-                            <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit">Edit</MudButton>
-                            <MudButton Variant="Variant.Filled" Color="Color.Error" ButtonType="ButtonType.Submit">Delete</MudButton>
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => EditEmployee(@context.Id))">Edit</MudButton>
+                            <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="@(() => OnEmployeeDeleted(@context.Id))">Delete</MudButton>
                         </MudTd>
                     </RowTemplate>
                 </MudTable>
@@ -40,8 +45,22 @@
     </MudGrid>
 </MudContainer>
 
+<CascadingValue Value="OnEmployeeDeleted">
+    <DeleteModals />
+</CascadingValue>
+
 @code {
     private List<EmployeeOutput> employees = new List<EmployeeOutput>();
+    private List<EmployeeOutput> filteredEmployees = new List<EmployeeOutput>();
+    private string? searchText;
+    private string? employeeIdToDelete;
+
+    //this is to stablish the limit characters of search Bar
+    private IEnumerable<string> MaxCharacters(string ch)
+    {
+        if (!string.IsNullOrEmpty(ch) && 25 < ch?.Length)
+            yield return "Max 25 characters";
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -67,45 +86,83 @@
             {
                 var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
 
-               
+
                 if (paginatedEmployees.Items.Any())
                 {
-                    allEmployees.AddRange(paginatedEmployees.Items); 
+                    allEmployees.AddRange(paginatedEmployees.Items);
                     page++;
                 }
                 else
                 {
-                    break; 
+                    break;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al obtener los empleados: {ex.Message}");
-                break; 
+                break;
             }
         }
 
-        employees = allEmployees;
+        filteredEmployees = allEmployees;
+        //StateHasChanged();
+    }
+
+    private async Task SearchEmployee()
+    {
+        if (!string.IsNullOrEmpty(searchText))
+        {
+            var filter = new EmployeeGetFilter(
+                NameContains: searchText,
+                Page: 1,
+                ItemsPerPage: 10
+            );
+
+            try
+            {
+                var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
+                filteredEmployees = paginatedEmployees.Items.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al buscar empleados: {ex.Message}");
+                filteredEmployees = new List<EmployeeOutput>();
+            }
+        }
+        else
+        {
+                filteredEmployees = new List<EmployeeOutput>(employees);
+            
+        }
         StateHasChanged();
     }
 
-  
-    private void EditEmployee(string employeeId)
+    private async Task EditEmployee(string employeeId)
     {
-        Navigation.NavigateTo($"/ToDo:/{employeeId}");
+        var employeeToEdit = employees.FirstOrDefault(e => e.Id == employeeId);
+
+        if (employeeToEdit != null)
+        {
+            var parameters = new DialogParameters
+            {
+                { "Employee", employeeToEdit }
+            };
+
+            var options = new DialogOptions { CloseOnEscapeKey = true };
+
+            await DialogService.ShowAsync<EditModal>("Edit Employee", parameters, options);
+        }
     }
 
-  
-    private async Task DeleteEmployee(string employeeId)
+    private async Task OnEmployeeDeleted(string employeeId)
     {
-        try
+        var parameters = new DialogParameters
         {
-            await employeeSdk.DeleteEmployee(employeeId);
-            await GetAllEmployeesWithoutFilter(); 
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error deleting employee: {ex.Message}");
-        }
+            { "EmployeeId", employeeId }
+        };
+
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+
+        await DialogService.ShowAsync<DeleteModals>("Delete Employee", parameters, options);
     }
 }

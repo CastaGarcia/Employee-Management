@@ -30,22 +30,21 @@ namespace Employees.Management.Services.Employees
                 );
 
             await _employeeRepo.AddAsync(employe);
-
             await _employeeRepo.SaveChangesAsync();
             return employe;
         }
 
-        public async Task Delete(string id)
+        public async Task Delete(string employeeId)
         {
-            Employee? employeExist = await _employeeRepo.GetById(id);
+            var employee = await _employeeRepo.GetById(employeeId);
 
-            if (employeExist == null)
-                throw new Exception("employe doesnt exist");
-
-            _employeeRepo.Delete(employeExist);
-            await _employeeRepo.SaveChangesAsync();
+            if (employee != null)
+            {
+                await _employeeRepo.Delete(employeeId);  
+                await _employeeRepo.SaveChangesAsync();  
+            }
         }
-
+        
         public async Task<Employee?> GetById(string id)
         {
             Employee? employeExist = await _employeeRepo.GetById(id);

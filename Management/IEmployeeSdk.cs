@@ -12,15 +12,15 @@ namespace Management
         Task<EmployeeOutput> Create([Body] EmployeeCreationData employeeCreationData);
 
         
-        [Get(BASEURL + "{Id}")]
+        [Get(BASEURL + "/{Id}")]
         Task<EmployeeOutput> GetEmployee(string id);
 
         [Get(BASEURL)]
         Task<PaginatedListOutput<EmployeeOutput>> GetEmployeesByFilter([Query] EmployeeGetFilter employeeGetFilter);
         
 
-        [Delete(BASEURL)]
-        Task<EmployeeOutput> DeleteEmployee(string id);
+        [Delete(BASEURL + "/{Id}")]
+        Task Delete(string id);
 
         
         [Put(BASEURL)]

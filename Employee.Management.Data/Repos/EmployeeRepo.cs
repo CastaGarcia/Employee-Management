@@ -24,15 +24,21 @@ namespace Employees.Management.Data.Repos
 
         public async Task<Employee?> GetById(string id)
         {
-            var employee = await _db.Employees
-                .FirstOrDefaultAsync(e => e.Id == id);
-
-            return employee;
+            return await _db.Employees.FirstOrDefaultAsync(e => e.Id == id);
         }
 
-        public void Delete(Employee employee)
+        public async Task Delete(string id)
         {
+            var employee = await _db.Employees.FindAsync(id);
+
+            if (employee == null)
+            {
+                throw new KeyNotFoundException("Empleado no encontrado");
+            }
+
             _db.Employees.Remove(employee);
+
+            await _db.SaveChangesAsync();
         }
 
         public async Task SaveChangesAsync()
@@ -40,10 +46,23 @@ namespace Employees.Management.Data.Repos
             await _db.SaveChangesAsync();
         }
 
-        public async Task Update(Employee employee)
+        public async Task<Employee?> Update(Employee employee)
         {
-            await _db.Employees.AddAsync(employee);
-            await _db.Employees.AddRangeAsync();
+            var existingEmployee = await _db.Employees.FindAsync(employee.Id);
+
+            if (existingEmployee == null)
+            {
+                return null; 
+            }
+            existingEmployee.FirstName = employee.FirstName;
+            existingEmployee.LastName = employee.LastName;
+            existingEmployee.Dui = employee.Dui;
+            
+            _db.Employees.Update(existingEmployee);
+
+            await SaveChangesAsync();
+
+            return existingEmployee;
         }
 
         public async Task<PaginatedListOutput<Employee>> GetEmployeesByFilter(EmployeeGetFilter employeeGetFilter)

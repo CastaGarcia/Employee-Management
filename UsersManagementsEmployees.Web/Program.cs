@@ -23,6 +23,7 @@ builder.Services.AddRefitClient<IAccountSdk>()
     .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlManagementApi));
 
 
+
 //MudBlazor services
 builder.Services.AddMudServices();
 

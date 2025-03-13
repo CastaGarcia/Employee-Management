@@ -9,8 +9,8 @@ namespace Employees.Management.Data
         Task AddAsync(Employee employee);
         Task<Employee?> GetById(string id);
         Task<PaginatedListOutput<Employee>> GetEmployeesByFilter(EmployeeGetFilter employeeGetFilter);
-        void Delete(Employee employee);
-        Task Update(Employee employee);
+        Task Delete(string id);
+        Task<Employee?> Update(Employee employee);
         Task SaveChangesAsync();
     }
 }

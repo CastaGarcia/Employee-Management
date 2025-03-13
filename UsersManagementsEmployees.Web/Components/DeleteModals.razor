@@ -1,0 +1,99 @@
+﻿@using Management
+@using Management.Inputs
+@using Management.Outputs
+@using MudBlazor
+
+@inject IEmployeeSdk employeeSdk
+
+<MudDialog>
+    <DialogContent>
+        <MudText>@ContentText</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+       
+        <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="@(() => DeleteEmployee(EmployeeId))">Delete</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+        [CascadingParameter]
+        private IMudDialogInstance MudDialog { get; set; }
+
+        [Parameter] public string EmployeeId { get; set; } 
+
+
+        [Parameter]public string ContentText { get; set; }
+
+        [Parameter] public string ButtonText { get; set; }
+
+        [Parameter] public Color Color { get; set; }
+
+    private List<EmployeeOutput> employees = new List<EmployeeOutput>();
+    private string? employeeIdToDelete;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetAllEmployeesWithoutFilter();
+    }
+
+    public async Task GetAllEmployeesWithoutFilter()
+    {
+        List<EmployeeOutput> allEmployees = new List<EmployeeOutput>();
+        int page = 1;
+        int pageSize = 10;
+        string nameFilter = null;
+
+        while (allEmployees.Count < 10)
+        {
+            var filter = new EmployeeGetFilter(
+                NameContains: string.IsNullOrEmpty(nameFilter) ? null : nameFilter,
+                Page: page,
+                ItemsPerPage: pageSize
+                );
+
+            try
+            {
+                var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
+
+
+                if (paginatedEmployees.Items.Any())
+                {
+                    allEmployees.AddRange(paginatedEmployees.Items);
+                    page++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los empleados: {ex.Message}");
+                break;
+            }
+        }
+
+        employees = allEmployees;
+        StateHasChanged();
+    }
+    private async Task DeleteEmployee(string employeeId)
+    {
+        try
+        {
+            await employeeSdk.Delete(employeeId);
+            MudDialog.Close(DialogResult.Ok(true));
+            //await GetAllEmployeesWithoutFilter();
+            Console.WriteLine("Empleado eliminado exitosamente.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error deleting employee: {ex.Message}");
+            MudDialog.Close(DialogResult.Ok(false));
+        }
+    }
+
+            private void Cancel() => MudDialog.Cancel();
+        
+}
+    
