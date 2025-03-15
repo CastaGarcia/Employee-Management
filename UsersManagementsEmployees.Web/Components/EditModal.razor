@@ -1,44 +1,75 @@
-﻿@*@using Management
+﻿@using System.ComponentModel.DataAnnotations
+@using Management
+@using MudBlazor
 @using Management.Inputs
 @using Management.Outputs
-@using MudBlazor
 
-@inject IDialogService Dialog
+@inject IEmployeeSdk employeeSdk
 
-<MudDialog>
-    <DialogContent>
-        <MudTextField @bind-Value="Employee.FirstName" Label="First Name" />
-        <MudTextField @bind-Value="Employee.LastName" Label="Last Name" />
-        <MudTextField @bind-Value="Employee.Dui" Label="DUI" />
 
-      
-    </DialogContent>
+<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Id" @bind-Value="model.Id" For="@(() => model.Id)" Disabled />
+                    <MudTextField Label="First Name" @bind-Value="model.FirstName" For="@(() => model.FirstName)" />
+                    <MudTextField Label="Last Name" @bind-Value="model.LastName" For="@(() => model.LastName)" />
+                    <MudTextField Label="DUI" @bind-Value="model.Dui" For="@(() => model.Dui)" InputType="InputType.Number" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit" Class="ml-auto">Save Changes</MudButton>
+                    <MudButton Variant="Variant.Filled" Color="Color.Secondary" OnClick="Cancel">Cancel</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
 
-    <DialogActions>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary">Save</MudButton>
-    </DialogActions>
-</MudDialog>
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    private EmployeeOutput model = new EmployeeOutput();
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; }
+    bool success = false;
 
-    // El empleado que se edita se pasa como parámetro
-    [Parameter] public EmployeeOutput Employee { get; set; }
-    [Parameter] public EventCallback<EmployeeOutput> OnSave { get; set; }  // Para invocar la lógica de guardar
-
-    // Acción para guardar los cambios
-    private async Task Save()
+    public class EmployeeOutput
     {
-        if (OnSave.HasDelegate)
-        {
-            await OnSave.InvokeAsync(Employee);  // Llamar al callback para guardar
-        }
+        [Required]
+        [StringLength(20, ErrorMessage = "Name length can't be more than 20.")]
+        public string Id { get; set; }
 
-        MudDialog.Close(DialogResult.Ok(Employee));  // Cierra el modal
+        [Required]
+        [EmailAddress]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(30, ErrorMessage = "Password must be at least 8 characters long.", MinimumLength = 8)]
+        public string LastName { get; set; }
+
+        [Required]
+        [StringLength(9, ErrorMessage = "Dui must be at least 9 characters long.", MinimumLength = 9)]
+        public int Dui { get; set; }
+
     }
 
-    // Acción para cancelar
+    private async Task OnValidSubmit()
+    {
+        var employeeUpdateData = new EmployeeUpdateData
+            (
+                Id : model.Id,
+                FirstName : model.FirstName,
+                LastName : model.LastName,
+                Dui : model.Dui
+            );
+
+        var updatedEmployee = await employeeSdk.Update(employeeUpdateData);
+
+        //success = true;
+
+        MudDialog.Close(DialogResult.Ok(updatedEmployee));
+        Console.WriteLine("Empleado Edited exitosamente.");
+    }
     private void Cancel() => MudDialog.Cancel();
 }
-*@
+}

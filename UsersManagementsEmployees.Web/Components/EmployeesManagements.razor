@@ -17,9 +17,19 @@
             <MudPaper Class="pa-4">
                 <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Employees</MudText>
 
-                <MudTextField T="string" Counter="25" HelperText="This field uses Counter prop" Immediate="true" Validation="@(new Func<string, IEnumerable<string>>(MaxCharacters))" Label="Regular" Variant="Variant.Text" />
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <MudTextField T="string" Counter="25" HelperText="This field uses Counter prop"
+                                  Immediate="true"
+                                  Validation="@(new Func<string, IEnumerable<string>>(MaxCharacters))"
+                                  Label="Regular"
+                                  Variant="Variant.Text"
+                                  Style="flex-grow: 1;" /> 
 
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => SearchEmployee()">Search</MudButton>
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               OnClick="() => SearchEmployee()"
+                               Class="ml-2">Search</MudButton>
+                </div>
 
                 <MudTable Items="filteredEmployees" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
                     <HeaderContent>
@@ -45,17 +55,21 @@
     </MudGrid>
 </MudContainer>
 
+<CascadingValue Value="EditEmployee">
+    <EditModal />
+</CascadingValue>
+
 <CascadingValue Value="OnEmployeeDeleted">
     <DeleteModals />
 </CascadingValue>
-
 @code {
     private List<EmployeeOutput> employees = new List<EmployeeOutput>();
     private List<EmployeeOutput> filteredEmployees = new List<EmployeeOutput>();
     private string? searchText;
     private string? employeeIdToDelete;
 
-    //this is to stablish the limit characters of search Bar
+    private bool isTableVisible = true;
+    
     private IEnumerable<string> MaxCharacters(string ch)
     {
         if (!string.IsNullOrEmpty(ch) && 25 < ch?.Length)
@@ -74,35 +88,14 @@
         int pageSize = 10;
         string nameFilter = null;
 
-        while (allEmployees.Count < 10)
-        {
+       
             var filter = new EmployeeGetFilter(
                 NameContains: string.IsNullOrEmpty(nameFilter) ? null : nameFilter,
                 Page: page,
                 ItemsPerPage: pageSize
                 );
 
-            try
-            {
-                var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
-
-
-                if (paginatedEmployees.Items.Any())
-                {
-                    allEmployees.AddRange(paginatedEmployees.Items);
-                    page++;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al obtener los empleados: {ex.Message}");
-                break;
-            }
-        }
+         var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);               
 
         filteredEmployees = allEmployees;
         //StateHasChanged();
@@ -118,41 +111,40 @@
                 ItemsPerPage: 10
             );
 
-            try
-            {
-                var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
-                filteredEmployees = paginatedEmployees.Items.ToList();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al buscar empleados: {ex.Message}");
-                filteredEmployees = new List<EmployeeOutput>();
-            }
-        }
-        else
-        {
-                filteredEmployees = new List<EmployeeOutput>(employees);
             
-        }
+                var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
+                filteredEmployees = paginatedEmployees.Items.ToList();           
+                Console.WriteLine($"empleado encontradocon el nombre {searchText}");
+        }   
+       
         StateHasChanged();
     }
 
     private async Task EditEmployee(string employeeId)
-    {
-        var employeeToEdit = employees.FirstOrDefault(e => e.Id == employeeId);
+    {       
+        // Ocultar la tabla cuando se hace clic en Edit
+        isTableVisible = false;
 
-        if (employeeToEdit != null)
-        {
+        var employee = await employeeSdk.GetEmployee(employeeId);
+
             var parameters = new DialogParameters
             {
-                { "Employee", employeeToEdit }
+                { "model", employee }
             };
 
-            var options = new DialogOptions { CloseOnEscapeKey = true };
+            //var options = new DialogOptions { CloseOnEscapeKey = true };
 
-            await DialogService.ShowAsync<EditModal>("Edit Employee", parameters, options);
-        }
+        
+            var EditedDialog = await DialogService.ShowAsync<EditModal>("Update Employee", parameters);
+            var result = await EditedDialog.Result;
+
+            if (!result!.Canceled)
+            {
+                await GetAllEmployeesWithoutFilter();
+            }
+        isTableVisible = true;
     }
+
 
     private async Task OnEmployeeDeleted(string employeeId)
     {
@@ -161,8 +153,14 @@
             { "EmployeeId", employeeId }
         };
 
-        var options = new DialogOptions { CloseOnEscapeKey = true };
+        //var options = new DialogOptions { CloseOnEscapeKey = true };
 
-        await DialogService.ShowAsync<DeleteModals>("Delete Employee", parameters, options);
-    }
+        var deleteDialog = await DialogService.ShowAsync<DeleteModals>("Delete Employee", parameters);
+        var result = await deleteDialog.Result;
+
+        if (!result!.Canceled)
+        {
+           await GetAllEmployeesWithoutFilter();
+        }
+    }  
 }
