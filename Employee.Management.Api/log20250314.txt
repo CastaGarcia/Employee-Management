@@ -2020,3 +2020,805 @@ FROM "Employees" AS e
 2025-03-14 20:07:40.124 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
 2025-03-14 20:07:40.124 -06:00 [INF] HTTP GET /api/employees responded 200 in 482.4510 ms
 2025-03-14 20:07:40.125 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 483.947ms
+2025-03-14 21:05:56.662 -06:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:05:57.232 -06:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-14 21:05:57.256 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-14 21:05:57.261 -06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-14 21:05:57.262 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:05:57.270 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-14 21:05:57.984 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-14 21:05:59.745 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-14 21:05:59.745 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-14 21:06:00.148 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-14 21:06:00.149 -06:00 [INF] Hosting environment: Development
+2025-03-14 21:06:00.149 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-14 21:06:00.932 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-14 21:06:01.836 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-14 21:06:01.881 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-14 21:06:01.883 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-14 21:06:01.887 -06:00 [INF] HTTP GET / responded 302 in 75.3422 ms
+2025-03-14 21:06:01.901 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 986.2267ms
+2025-03-14 21:06:01.936 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-14 21:06:02.153 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 187.1886 ms
+2025-03-14 21:06:02.155 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 218.4027ms
+2025-03-14 21:06:02.281 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-14 21:06:02.285 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-14 21:06:02.285 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-14 21:06:02.298 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 2.0346 ms
+2025-03-14 21:06:02.299 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 13.7189ms
+2025-03-14 21:06:02.426 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 144.8542ms
+2025-03-14 21:06:02.547 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 261.934ms
+2025-03-14 21:06:02.687 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-14 21:06:02.737 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 49.1103 ms
+2025-03-14 21:06:02.740 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.8597ms
+2025-03-14 21:06:16.610 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:06:16.611 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:16.614 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 3.7618 ms
+2025-03-14 21:06:16.615 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 5.1693ms
+2025-03-14 21:06:16.620 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 40
+2025-03-14 21:06:16.623 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:16.624 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:16.679 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:06:17.500 -06:00 [INF] Executed DbCommand (34ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:06:17.529 -06:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-03-14 21:06:17.541 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 851.9028ms
+2025-03-14 21:06:17.542 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:17.543 -06:00 [INF] HTTP POST /api/tokens responded 400 in 921.3588 ms
+2025-03-14 21:06:17.555 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 400 null text/plain; charset=utf-8 935.2679ms
+2025-03-14 21:06:20.568 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 40
+2025-03-14 21:06:20.569 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:20.569 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:20.569 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:06:20.927 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:06:20.932 -06:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-03-14 21:06:20.933 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 363.4719ms
+2025-03-14 21:06:20.934 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:20.934 -06:00 [INF] HTTP POST /api/tokens responded 400 in 365.5843 ms
+2025-03-14 21:06:20.939 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 400 null text/plain; charset=utf-8 370.9529ms
+2025-03-14 21:06:24.445 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:06:24.446 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:24.446 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 0.2539 ms
+2025-03-14 21:06:24.446 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 1.0188ms
+2025-03-14 21:06:24.450 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 40
+2025-03-14 21:06:24.450 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:24.451 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:24.451 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:06:24.457 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:06:24.458 -06:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-03-14 21:06:24.459 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 7.904ms
+2025-03-14 21:06:24.459 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:24.459 -06:00 [INF] HTTP POST /api/tokens responded 400 in 8.4689 ms
+2025-03-14 21:06:24.459 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 400 null text/plain; charset=utf-8 9.3073ms
+2025-03-14 21:06:33.306 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:06:33.307 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:33.307 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 0.1768 ms
+2025-03-14 21:06:33.307 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 1.023ms
+2025-03-14 21:06:33.309 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 40
+2025-03-14 21:06:33.310 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:33.310 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:33.310 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:06:33.315 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:06:33.316 -06:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-03-14 21:06:33.316 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 5.2524ms
+2025-03-14 21:06:33.316 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:33.316 -06:00 [INF] HTTP POST /api/tokens responded 400 in 6.4132 ms
+2025-03-14 21:06:33.318 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 400 null text/plain; charset=utf-8 8.3544ms
+2025-03-14 21:06:41.404 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:06:41.404 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:41.404 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 0.1541 ms
+2025-03-14 21:06:41.405 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 0.7849ms
+2025-03-14 21:06:41.410 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 39
+2025-03-14 21:06:41.411 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:41.411 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:41.411 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:06:41.418 -06:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:06:41.543 -06:00 [INF] Executing OkObjectResult, writing value of type 'Employees.Management.Models.UserTokens'.
+2025-03-14 21:06:41.572 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 160.6737ms
+2025-03-14 21:06:41.572 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:06:41.572 -06:00 [INF] HTTP POST /api/tokens responded 200 in 161.5596 ms
+2025-03-14 21:06:41.572 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 200 null application/json; charset=utf-8 162.5966ms
+2025-03-14 21:06:41.713 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:06:41.714 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:41.714 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:06:41.725 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:06:41.944 -06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:06:42.011 -06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:06:42.024 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:06:42.036 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 310.1496ms
+2025-03-14 21:06:42.036 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:06:42.036 -06:00 [INF] HTTP GET /api/employees responded 200 in 322.3518 ms
+2025-03-14 21:06:42.036 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 322.8494ms
+2025-03-14 21:06:51.831 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/employees/59238482-fcc7-4696-ad58-8991fc437921 - null null
+2025-03-14 21:06:51.832 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:51.833 -06:00 [INF] HTTP OPTIONS /api/employees/59238482-fcc7-4696-ad58-8991fc437921 responded 204 in 0.8711 ms
+2025-03-14 21:06:51.833 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/employees/59238482-fcc7-4696-ad58-8991fc437921 - 204 null null 1.971ms
+2025-03-14 21:06:51.838 -06:00 [INF] Request starting HTTP/2 DELETE https://localhost:7015/api/employees/59238482-fcc7-4696-ad58-8991fc437921 - null null
+2025-03-14 21:06:51.839 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:51.839 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.Delete (Employees.Management.Api)'
+2025-03-14 21:06:51.846 -06:00 [INF] Route matched with {action = "Delete", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(System.String) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:06:51.870 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+WHERE e."Id" = @__id_0
+LIMIT 1
+2025-03-14 21:06:52.052 -06:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?'], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Employees"
+WHERE "Id" = @p0;
+2025-03-14 21:06:52.077 -06:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-03-14 21:06:52.078 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.Delete (Employees.Management.Api) in 231.6947ms
+2025-03-14 21:06:52.078 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.Delete (Employees.Management.Api)'
+2025-03-14 21:06:52.078 -06:00 [INF] HTTP DELETE /api/employees/59238482-fcc7-4696-ad58-8991fc437921 responded 204 in 239.3405 ms
+2025-03-14 21:06:52.078 -06:00 [INF] Request finished HTTP/2 DELETE https://localhost:7015/api/employees/59238482-fcc7-4696-ad58-8991fc437921 - 204 null null 239.9054ms
+2025-03-14 21:06:52.092 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:06:52.092 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:52.093 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:06:52.094 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:06:52.106 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:06:52.111 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:06:52.113 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:06:52.114 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 18.5627ms
+2025-03-14 21:06:52.114 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:06:52.115 -06:00 [INF] HTTP GET /api/employees responded 200 in 22.2448 ms
+2025-03-14 21:06:52.115 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 23.4658ms
+2025-03-14 21:06:53.545 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 - null null
+2025-03-14 21:06:53.545 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:06:53.545 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetEmployee (Employees.Management.Api)'
+2025-03-14 21:06:53.549 -06:00 [INF] Route matched with {action = "GetEmployee", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEmployee(System.String) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:06:53.556 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+WHERE e."Id" = @__id_0
+LIMIT 1
+2025-03-14 21:06:53.561 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.Outputs.EmployeeOutput'.
+2025-03-14 21:06:53.562 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetEmployee (Employees.Management.Api) in 12.285ms
+2025-03-14 21:06:53.562 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetEmployee (Employees.Management.Api)'
+2025-03-14 21:06:53.562 -06:00 [INF] HTTP GET /api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 responded 200 in 17.2811 ms
+2025-03-14 21:06:53.563 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 - 200 null application/json; charset=utf-8 18.1577ms
+2025-03-14 21:40:59.640 -06:00 [INF] Executed DbCommand (177ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:41:01.722 -06:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-14 21:41:01.740 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-14 21:41:01.745 -06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-14 21:41:01.746 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:41:01.755 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-14 21:41:02.019 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-14 21:41:02.565 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-14 21:41:02.565 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-14 21:41:02.858 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-14 21:41:02.858 -06:00 [INF] Hosting environment: Development
+2025-03-14 21:41:02.858 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-14 21:41:03.873 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-14 21:41:04.718 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-14 21:41:04.740 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-14 21:41:04.741 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-14 21:41:04.749 -06:00 [INF] HTTP GET / responded 302 in 51.6648 ms
+2025-03-14 21:41:04.785 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 924.4815ms
+2025-03-14 21:41:04.810 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-14 21:41:05.012 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 176.5953 ms
+2025-03-14 21:41:05.014 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 204.0038ms
+2025-03-14 21:41:05.043 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-14 21:41:05.111 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-14 21:41:05.138 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 95.5379ms
+2025-03-14 21:41:05.139 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-14 21:41:05.153 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 2.6121 ms
+2025-03-14 21:41:05.153 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 42.5517ms
+2025-03-14 21:41:05.313 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 174.2222ms
+2025-03-14 21:41:05.582 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-14 21:41:05.681 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 38.5632 ms
+2025-03-14 21:41:05.684 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 103.4186ms
+2025-03-14 21:41:19.954 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:41:19.957 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:41:19.960 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 4.5603 ms
+2025-03-14 21:41:19.961 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 6.5121ms
+2025-03-14 21:41:19.967 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 38
+2025-03-14 21:41:19.969 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:41:19.970 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:41:20.038 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:41:20.632 -06:00 [INF] Executed DbCommand (23ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:41:20.769 -06:00 [INF] Executing OkObjectResult, writing value of type 'Employees.Management.Models.UserTokens'.
+2025-03-14 21:41:20.800 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 751.0903ms
+2025-03-14 21:41:20.800 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:41:20.802 -06:00 [INF] HTTP POST /api/tokens responded 200 in 832.9326 ms
+2025-03-14 21:41:20.808 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 200 null application/json; charset=utf-8 841.0399ms
+2025-03-14 21:41:20.944 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:41:20.946 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:41:20.946 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:41:20.959 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:41:21.215 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:41:21.290 -06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:41:21.315 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:41:21.325 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 365.729ms
+2025-03-14 21:41:21.325 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:41:21.325 -06:00 [INF] HTTP GET /api/employees responded 200 in 379.1541 ms
+2025-03-14 21:41:21.325 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 380.9364ms
+2025-03-14 21:41:21.406 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:41:21.407 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:41:21.407 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:41:21.407 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:41:21.425 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:41:21.427 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:41:21.429 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:41:21.429 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 21.901ms
+2025-03-14 21:41:21.429 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:41:21.429 -06:00 [INF] HTTP GET /api/employees responded 200 in 22.7628 ms
+2025-03-14 21:41:21.430 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 23.4624ms
+2025-03-14 21:44:12.651 -06:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:44:13.263 -06:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-14 21:44:13.284 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-14 21:44:13.286 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-14 21:44:13.288 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:44:13.294 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-14 21:44:13.775 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-14 21:44:15.092 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-14 21:44:15.092 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-14 21:44:15.490 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-14 21:44:15.490 -06:00 [INF] Hosting environment: Development
+2025-03-14 21:44:15.490 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-14 21:44:17.378 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-14 21:44:19.242 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-14 21:44:19.327 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-14 21:44:19.328 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-14 21:44:19.334 -06:00 [INF] HTTP GET / responded 302 in 121.8138 ms
+2025-03-14 21:44:19.359 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 1996.6777ms
+2025-03-14 21:44:19.389 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-14 21:44:19.634 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 214.2144 ms
+2025-03-14 21:44:19.636 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 247.7738ms
+2025-03-14 21:44:19.650 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-14 21:44:19.655 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-14 21:44:19.679 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-14 21:44:19.682 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 2.2936 ms
+2025-03-14 21:44:19.683 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 28.1629ms
+2025-03-14 21:44:19.767 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 116.5548ms
+2025-03-14 21:44:19.868 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 189.7792ms
+2025-03-14 21:44:20.095 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-14 21:44:20.193 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 96.2420 ms
+2025-03-14 21:44:20.203 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.9817ms
+2025-03-14 21:44:40.580 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:44:40.582 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:44:40.584 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 3.6942 ms
+2025-03-14 21:44:40.585 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 4.5866ms
+2025-03-14 21:44:40.587 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 39
+2025-03-14 21:44:40.591 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:44:40.592 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:44:40.631 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:44:41.247 -06:00 [INF] Executed DbCommand (31ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:44:41.373 -06:00 [INF] Executing OkObjectResult, writing value of type 'Employees.Management.Models.UserTokens'.
+2025-03-14 21:44:41.393 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 756.9681ms
+2025-03-14 21:44:41.393 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:44:41.394 -06:00 [INF] HTTP POST /api/tokens responded 200 in 804.4672 ms
+2025-03-14 21:44:41.406 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 200 null application/json; charset=utf-8 818.5314ms
+2025-03-14 21:44:41.524 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:44:41.525 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:44:41.525 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:44:41.538 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:44:41.810 -06:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:44:41.865 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:44:41.886 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:44:41.891 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 352.935ms
+2025-03-14 21:44:41.891 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:44:41.891 -06:00 [INF] HTTP GET /api/employees responded 200 in 366.3942 ms
+2025-03-14 21:44:41.891 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 367.361ms
+2025-03-14 21:44:41.935 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:44:41.936 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:44:41.936 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:44:41.937 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:44:41.943 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:44:41.946 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:44:41.948 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:44:41.948 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 11.2631ms
+2025-03-14 21:44:41.948 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:44:41.948 -06:00 [INF] HTTP GET /api/employees responded 200 in 12.3135 ms
+2025-03-14 21:44:41.948 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 13.1163ms
+2025-03-14 21:47:33.503 -06:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:47:34.318 -06:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-14 21:47:34.345 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-14 21:47:34.348 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-14 21:47:34.349 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:47:34.358 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-14 21:47:35.845 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-14 21:47:36.576 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-14 21:47:36.576 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-14 21:47:36.683 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-14 21:47:36.683 -06:00 [INF] Hosting environment: Development
+2025-03-14 21:47:36.683 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-14 21:47:37.363 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-14 21:47:38.536 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-14 21:47:38.569 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-14 21:47:38.570 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-14 21:47:38.579 -06:00 [INF] HTTP GET / responded 302 in 59.0860 ms
+2025-03-14 21:47:38.599 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 1250.2829ms
+2025-03-14 21:47:38.624 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-14 21:47:38.859 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 198.4531 ms
+2025-03-14 21:47:38.860 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 236.2026ms
+2025-03-14 21:47:38.928 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-14 21:47:38.934 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-14 21:47:38.934 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-14 21:47:38.948 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 2.0619 ms
+2025-03-14 21:47:38.948 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 16.3127ms
+2025-03-14 21:47:38.953 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 24.7074ms
+2025-03-14 21:47:39.090 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 155.6656ms
+2025-03-14 21:47:39.354 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-14 21:47:39.513 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 156.5696 ms
+2025-03-14 21:47:39.515 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 160.6388ms
+2025-03-14 21:47:58.027 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:47:58.030 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:47:58.032 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 3.4286 ms
+2025-03-14 21:47:58.032 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 5.4432ms
+2025-03-14 21:47:58.034 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 39
+2025-03-14 21:47:58.036 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:47:58.036 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:47:58.081 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:47:58.746 -06:00 [INF] Executed DbCommand (33ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:47:58.901 -06:00 [INF] Executing OkObjectResult, writing value of type 'Employees.Management.Models.UserTokens'.
+2025-03-14 21:47:58.944 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 853.448ms
+2025-03-14 21:47:58.945 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:47:58.949 -06:00 [INF] HTTP POST /api/tokens responded 200 in 913.6093 ms
+2025-03-14 21:47:58.964 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 200 null application/json; charset=utf-8 929.6774ms
+2025-03-14 21:47:59.133 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:47:59.134 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:47:59.134 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:47:59.142 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:47:59.463 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:47:59.524 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:47:59.544 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:47:59.551 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 407.8339ms
+2025-03-14 21:47:59.551 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:47:59.551 -06:00 [INF] HTTP GET /api/employees responded 200 in 416.9398 ms
+2025-03-14 21:47:59.551 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 417.6919ms
+2025-03-14 21:47:59.607 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:47:59.607 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:47:59.608 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:47:59.608 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:47:59.629 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:47:59.632 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:47:59.634 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:47:59.634 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 26.0465ms
+2025-03-14 21:47:59.634 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:47:59.634 -06:00 [INF] HTTP GET /api/employees responded 200 in 27.0579 ms
+2025-03-14 21:47:59.635 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 27.9633ms
+2025-03-14 21:48:29.097 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:48:29.127 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:48:29.127 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:48:29.127 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:48:29.134 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:48:29.135 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:48:29.136 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:48:29.136 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 8.6428ms
+2025-03-14 21:48:29.136 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:48:29.136 -06:00 [INF] HTTP GET /api/employees responded 200 in 9.7410 ms
+2025-03-14 21:48:29.137 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 39.66ms
+2025-03-14 21:49:48.857 -06:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:49:50.320 -06:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-14 21:49:50.356 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-14 21:49:50.359 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-14 21:49:50.363 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:49:50.378 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-14 21:49:51.358 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-14 21:49:51.827 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-14 21:49:51.827 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-14 21:49:51.897 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-14 21:49:51.897 -06:00 [INF] Hosting environment: Development
+2025-03-14 21:49:51.897 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-14 21:49:52.596 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-14 21:49:53.795 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-14 21:49:53.883 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-14 21:49:53.884 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-14 21:49:53.890 -06:00 [INF] HTTP GET / responded 302 in 116.4762 ms
+2025-03-14 21:49:53.906 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 1323.5491ms
+2025-03-14 21:49:53.943 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-14 21:49:54.241 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 251.6480 ms
+2025-03-14 21:49:54.244 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 300.9002ms
+2025-03-14 21:49:54.274 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-14 21:49:54.276 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-14 21:49:54.323 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 12.0600 ms
+2025-03-14 21:49:54.324 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 47.6542ms
+2025-03-14 21:49:54.324 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-14 21:49:54.374 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 99.5452ms
+2025-03-14 21:49:54.527 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 202.7383ms
+2025-03-14 21:49:54.738 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-14 21:49:54.785 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 46.4661 ms
+2025-03-14 21:49:54.789 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 50.7888ms
+2025-03-14 21:50:16.081 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:50:16.084 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:50:16.087 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 5.2215 ms
+2025-03-14 21:50:16.088 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 7.1145ms
+2025-03-14 21:50:16.091 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 39
+2025-03-14 21:50:16.094 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:50:16.095 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:50:16.147 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:50:16.865 -06:00 [INF] Executed DbCommand (33ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:50:17.029 -06:00 [INF] Executing OkObjectResult, writing value of type 'Employees.Management.Models.UserTokens'.
+2025-03-14 21:50:17.057 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 900.8712ms
+2025-03-14 21:50:17.058 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:50:17.060 -06:00 [INF] HTTP POST /api/tokens responded 200 in 966.7054 ms
+2025-03-14 21:50:17.071 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 200 null application/json; charset=utf-8 979.4685ms
+2025-03-14 21:50:17.238 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:50:17.239 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:50:17.239 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:17.250 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:50:17.545 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:50:17.628 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:50:17.653 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:50:17.661 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 410.5812ms
+2025-03-14 21:50:17.661 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:17.661 -06:00 [INF] HTTP GET /api/employees responded 200 in 422.4511 ms
+2025-03-14 21:50:17.662 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 423.8054ms
+2025-03-14 21:50:17.728 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:50:17.729 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:50:17.730 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:17.730 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:50:17.745 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:50:17.746 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:50:17.747 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:50:17.747 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 17.3363ms
+2025-03-14 21:50:17.748 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:17.748 -06:00 [INF] HTTP GET /api/employees responded 200 in 18.3504 ms
+2025-03-14 21:50:17.748 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 19.9884ms
+2025-03-14 21:50:25.024 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:50:25.025 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:50:25.026 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:25.027 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:50:25.040 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:50:25.042 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:50:25.042 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:50:25.042 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 15.8ms
+2025-03-14 21:50:25.042 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:25.042 -06:00 [INF] HTTP GET /api/employees responded 200 in 17.7874 ms
+2025-03-14 21:50:25.043 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 18.4066ms
+2025-03-14 21:50:55.742 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:50:55.743 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:50:55.743 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:55.744 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:50:55.783 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:50:55.785 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:50:55.785 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:50:55.786 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 38.0406ms
+2025-03-14 21:50:55.786 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:55.786 -06:00 [INF] HTTP GET /api/employees responded 200 in 42.8794 ms
+2025-03-14 21:50:55.786 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 43.5517ms
+2025-03-14 21:50:56.603 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:50:56.604 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:50:56.604 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:56.604 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:50:56.607 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:50:56.615 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:50:56.616 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:50:56.616 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 11.8451ms
+2025-03-14 21:50:56.616 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:50:56.616 -06:00 [INF] HTTP GET /api/employees responded 200 in 12.4722 ms
+2025-03-14 21:50:56.617 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 13.7681ms
+2025-03-14 21:53:31.950 -06:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:53:33.461 -06:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-03-14 21:53:33.486 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-14 21:53:33.489 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-03-14 21:53:33.490 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-03-14 21:53:33.501 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-14 21:53:34.338 -06:00 [INF] User profile is available. Using 'C:\Users\CASTAÑEDA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-14 21:53:35.012 -06:00 [INF] Now listening on: https://localhost:7015
+2025-03-14 21:53:35.013 -06:00 [INF] Now listening on: http://localhost:5209
+2025-03-14 21:53:35.245 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-14 21:53:35.245 -06:00 [INF] Hosting environment: Development
+2025-03-14 21:53:35.245 -06:00 [INF] Content root path: C:\Users\CASTAÑEDA\Documents\Employee-Management\Employee.Management.Api
+2025-03-14 21:53:35.979 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/ - null null
+2025-03-14 21:53:38.436 -06:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-03-14 21:53:38.533 -06:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2025-03-14 21:53:38.534 -06:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-03-14 21:53:38.538 -06:00 [INF] HTTP GET / responded 302 in 172.5593 ms
+2025-03-14 21:53:38.555 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/ - 302 0 null 2600.2214ms
+2025-03-14 21:53:38.638 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.html - null null
+2025-03-14 21:53:38.910 -06:00 [INF] HTTP GET /swagger/index.html responded 200 in 251.7041 ms
+2025-03-14 21:53:38.914 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.html - 200 null text/html;charset=utf-8 287.3665ms
+2025-03-14 21:53:38.986 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-14 21:53:38.997 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/index.js - null null
+2025-03-14 21:53:39.011 -06:00 [INF] HTTP GET /swagger/index.js responded 200 in 6.3197 ms
+2025-03-14 21:53:39.012 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/index.js - 200 null application/javascript;charset=utf-8 14.2729ms
+2025-03-14 21:53:39.014 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/_vs/browserLink - null null
+2025-03-14 21:53:39.066 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_framework/aspnetcore-browser-refresh.js - 200 16533 application/javascript; charset=utf-8 80.3419ms
+2025-03-14 21:53:39.456 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/_vs/browserLink - 200 null text/javascript; charset=UTF-8 442.3502ms
+2025-03-14 21:53:39.598 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - null null
+2025-03-14 21:53:39.684 -06:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 85.0037 ms
+2025-03-14 21:53:39.685 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 87.1333ms
+2025-03-14 21:53:55.510 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/tokens - null null
+2025-03-14 21:53:55.511 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:53:55.514 -06:00 [INF] HTTP OPTIONS /api/tokens responded 204 in 3.8275 ms
+2025-03-14 21:53:55.516 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/tokens - 204 null null 6.1649ms
+2025-03-14 21:53:55.521 -06:00 [INF] Request starting HTTP/2 POST https://localhost:7015/api/tokens - application/json; charset=utf-8 39
+2025-03-14 21:53:55.525 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:53:55.525 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:53:55.588 -06:00 [INF] Route matched with {action = "GetToken", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetToken(Employees.Management.Models.UserLogin) on controller Employees.Management.Api.Controllers.AccountController (Employees.Management.Api).
+2025-03-14 21:53:56.380 -06:00 [INF] Executed DbCommand (26ms) [Parameters=[@__userLoged_UserName_0='?', @__userLoged_PassWord_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."PassWord", u."UserName"
+FROM "Users" AS u
+WHERE u."UserName" = @__userLoged_UserName_0 AND u."PassWord" = @__userLoged_PassWord_1
+LIMIT 1
+2025-03-14 21:53:56.555 -06:00 [INF] Executing OkObjectResult, writing value of type 'Employees.Management.Models.UserTokens'.
+2025-03-14 21:53:56.592 -06:00 [INF] Executed action Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api) in 998.0394ms
+2025-03-14 21:53:56.592 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.AccountController.GetToken (Employees.Management.Api)'
+2025-03-14 21:53:56.594 -06:00 [INF] HTTP POST /api/tokens responded 200 in 1069.6741 ms
+2025-03-14 21:53:56.604 -06:00 [INF] Request finished HTTP/2 POST https://localhost:7015/api/tokens - 200 null application/json; charset=utf-8 1082.6676ms
+2025-03-14 21:53:56.775 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:53:56.776 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:53:56.776 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:53:56.800 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:53:57.073 -06:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+ORDER BY e."Id"
+LIMIT @__p_1 OFFSET @__p_0
+2025-03-14 21:53:57.146 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+2025-03-14 21:53:57.161 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:53:57.170 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 369.8691ms
+2025-03-14 21:53:57.170 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:53:57.170 -06:00 [INF] HTTP GET /api/employees responded 200 in 394.1433 ms
+2025-03-14 21:53:57.171 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 395.7778ms
+2025-03-14 21:54:03.023 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?NameContains=Pueba&Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:54:03.025 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:54:03.025 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:54:03.026 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:54:03.115 -06:00 [INF] Executed DbCommand (8ms) [Parameters=[@__ToLower_0_contains='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+WHERE lower(e."FirstName") LIKE @__ToLower_0_contains
+ORDER BY e."Id"
+LIMIT @__p_2 OFFSET @__p_1
+2025-03-14 21:54:03.121 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToLower_0_contains='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+WHERE lower(e."FirstName") LIKE @__ToLower_0_contains
+2025-03-14 21:54:03.122 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:54:03.123 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 96.7477ms
+2025-03-14 21:54:03.123 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:54:03.123 -06:00 [INF] HTTP GET /api/employees responded 200 in 98.1067 ms
+2025-03-14 21:54:03.123 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?NameContains=Pueba&Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 99.6197ms
+2025-03-14 21:54:20.112 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?NameContains=Maria&Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:54:20.112 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:54:20.112 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:54:20.112 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:54:20.125 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToLower_0_contains='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+WHERE lower(e."FirstName") LIKE @__ToLower_0_contains
+ORDER BY e."Id"
+LIMIT @__p_2 OFFSET @__p_1
+2025-03-14 21:54:20.127 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToLower_0_contains='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+WHERE lower(e."FirstName") LIKE @__ToLower_0_contains
+2025-03-14 21:54:20.128 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:54:20.128 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 15.8726ms
+2025-03-14 21:54:20.128 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:54:20.128 -06:00 [INF] HTTP GET /api/employees responded 200 in 16.3561 ms
+2025-03-14 21:54:20.129 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?NameContains=Maria&Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 16.9459ms
+2025-03-14 21:55:14.007 -06:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7015/api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 - null null
+2025-03-14 21:55:14.008 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:55:14.008 -06:00 [INF] HTTP OPTIONS /api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 responded 204 in 0.2465 ms
+2025-03-14 21:55:14.008 -06:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7015/api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 - 204 null null 0.8908ms
+2025-03-14 21:55:14.014 -06:00 [INF] Request starting HTTP/2 DELETE https://localhost:7015/api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 - null null
+2025-03-14 21:55:14.015 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:55:14.016 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.Delete (Employees.Management.Api)'
+2025-03-14 21:55:14.022 -06:00 [INF] Route matched with {action = "Delete", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(System.String) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:55:14.037 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+WHERE e."Id" = @__id_0
+LIMIT 1
+2025-03-14 21:55:14.178 -06:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?'], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Employees"
+WHERE "Id" = @p0;
+2025-03-14 21:55:14.205 -06:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-03-14 21:55:14.205 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.Delete (Employees.Management.Api) in 183.4143ms
+2025-03-14 21:55:14.205 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.Delete (Employees.Management.Api)'
+2025-03-14 21:55:14.205 -06:00 [INF] HTTP DELETE /api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 responded 204 in 190.3440 ms
+2025-03-14 21:55:14.205 -06:00 [INF] Request finished HTTP/2 DELETE https://localhost:7015/api/employees/5c0d0157-e25a-4965-9c47-2bbd5f943775 - 204 null null 191.9652ms
+2025-03-14 21:55:14.219 -06:00 [INF] Request starting HTTP/2 GET https://localhost:7015/api/employees?NameContains=Maria&Page=1&ItemsPerPage=10 - null null
+2025-03-14 21:55:14.220 -06:00 [INF] CORS policy execution successful.
+2025-03-14 21:55:14.220 -06:00 [INF] Executing endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:55:14.220 -06:00 [INF] Route matched with {action = "GetByFilter", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByFilter(Management.Inputs.EmployeeGetFilter) on controller Employees.Management.Api.Controllers.EmployeeController (Employees.Management.Api).
+2025-03-14 21:55:14.226 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToLower_0_contains='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."Dui", e."FirstName", e."LastName"
+FROM "Employees" AS e
+WHERE lower(e."FirstName") LIKE @__ToLower_0_contains
+ORDER BY e."Id"
+LIMIT @__p_2 OFFSET @__p_1
+2025-03-14 21:55:14.228 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToLower_0_contains='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Employees" AS e
+WHERE lower(e."FirstName") LIKE @__ToLower_0_contains
+2025-03-14 21:55:14.228 -06:00 [INF] Executing OkObjectResult, writing value of type 'Management.PaginatedListOutput`1[[Management.Outputs.EmployeeOutput, Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 21:55:14.230 -06:00 [INF] Executed action Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api) in 9.9175ms
+2025-03-14 21:55:14.231 -06:00 [INF] Executed endpoint 'Employees.Management.Api.Controllers.EmployeeController.GetByFilter (Employees.Management.Api)'
+2025-03-14 21:55:14.231 -06:00 [INF] HTTP GET /api/employees responded 200 in 11.8070 ms
+2025-03-14 21:55:14.234 -06:00 [INF] Request finished HTTP/2 GET https://localhost:7015/api/employees?NameContains=Maria&Page=1&ItemsPerPage=10 - 200 null application/json; charset=utf-8 14.9682ms

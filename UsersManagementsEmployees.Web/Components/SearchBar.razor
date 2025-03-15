@@ -1,5 +1,34 @@
-﻿<h3>SearchBar</h3>
+﻿@using MudBlazor
+@using UsersManagementsEmployees.Web.Components.ViewModels
+
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <MudTextField @bind-Value="SearchBarVM.NameContains" Counter="25" HelperText="This field uses Counter prop"
+                                  Immediate="true"
+                                  Validation="@(new Func<string, IEnumerable<string>>(MaxCharacters))"
+                                  Label="Regular"
+                                  Variant="Variant.Text"
+                                  Style="flex-grow: 1;" />
+
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                                OnClick=SearchEmployee
+                               Class="ml-2">Search</MudButton>
+                </div>
 
 @code {
+    [Parameter]
+    public SearchBarVM SearchBarVM { get; set; }
+    [Parameter] public EventCallback OnSearch { get; set; }
 
+    private IEnumerable<string> MaxCharacters(string ch)
+    {
+        if (!string.IsNullOrEmpty(ch) && 25 < ch?.Length)
+            yield return "Max 25 characters";
+    }
+
+    private async Task SearchEmployee()
+    {
+        await OnSearch.InvokeAsync();
+    }
 }

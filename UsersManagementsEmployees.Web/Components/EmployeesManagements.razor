@@ -4,6 +4,7 @@
 @using Management.Inputs
 @using MudBlazor
 @using Management.Outputs
+@using UsersManagementsEmployees.Web.Components.ViewModels
 
 @inject IEmployeeSdk employeeSdk
 @inject NavigationManager Navigation
@@ -15,41 +16,30 @@
     <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
         <MudItem xs="12" sm="8" md="6" lg="12">
             <MudPaper Class="pa-4">
-                <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Employees</MudText>
-
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <MudTextField T="string" Counter="25" HelperText="This field uses Counter prop"
-                                  Immediate="true"
-                                  Validation="@(new Func<string, IEnumerable<string>>(MaxCharacters))"
-                                  Label="Regular"
-                                  Variant="Variant.Text"
-                                  Style="flex-grow: 1;" /> 
-
-                    <MudButton Variant="Variant.Filled"
-                               Color="Color.Primary"
-                               OnClick="() => SearchEmployee()"
-                               Class="ml-2">Search</MudButton>
-                </div>
-
-                <MudTable Items="filteredEmployees" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
-                    <HeaderContent>
-                        <MudTh>ID</MudTh>
-                        <MudTh>Name</MudTh>
-                        <MudTh>Apellido</MudTh>
-                        <MudTh>DUI</MudTh>
-                        <MudTh>Actions</MudTh>
-                    </HeaderContent>
-                    <RowTemplate>
-                        <MudTd DataLabel="ID">@context.Id</MudTd>
-                        <MudTd DataLabel="Name">@context.FirstName</MudTd>
-                        <MudTd DataLabel="Apellido">@context.LastName</MudTd>
-                        <MudTd DataLabel="DUI">@context.Dui</MudTd>
-                        <MudTd DataLabel="Actions">
-                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => EditEmployee(@context.Id))">Edit</MudButton>
-                            <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="@(() => OnEmployeeDeleted(@context.Id))">Delete</MudButton>
-                        </MudTd>
-                    </RowTemplate>
-                </MudTable>
+                <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Employees</MudText>                
+                <SearchBar SearchBarVM=searchBarVM OnSearch=NavigateTo/>
+                @if (Employees != null)
+                {
+                    <MudTable Items="Employees.Items" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
+                        <HeaderContent>
+                            <MudTh>ID</MudTh>
+                            <MudTh>Name</MudTh>
+                            <MudTh>Apellido</MudTh>
+                            <MudTh>DUI</MudTh>
+                            <MudTh>Actions</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="ID">@context.Id</MudTd>
+                            <MudTd DataLabel="Name">@context.FirstName</MudTd>
+                            <MudTd DataLabel="Apellido">@context.LastName</MudTd>
+                            <MudTd DataLabel="DUI">@context.Dui</MudTd>
+                            <MudTd DataLabel="Actions">
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => EditEmployee(@context.Id))">Edit</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="@(() => OnEmployeeDeleted(@context.Id))">Delete</MudButton>
+                            </MudTd>
+                        </RowTemplate>
+                    </MudTable>
+                }                
             </MudPaper>
         </MudItem>
     </MudGrid>
@@ -63,77 +53,60 @@
     <DeleteModals />
 </CascadingValue>
 @code {
-    private List<EmployeeOutput> employees = new List<EmployeeOutput>();
-    private List<EmployeeOutput> filteredEmployees = new List<EmployeeOutput>();
-    private string? searchText;
-    private string? employeeIdToDelete;
+    private PaginatedListOutput<EmployeeOutput>? Employees = null;
+    SearchBarVM searchBarVM = new SearchBarVM();
 
-    private bool isTableVisible = true;
-    
-    private IEnumerable<string> MaxCharacters(string ch)
-    {
-        if (!string.IsNullOrEmpty(ch) && 25 < ch?.Length)
-            yield return "Max 25 characters";
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetAllEmployeesWithoutFilter();
-    }
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public string Name { get; set; }
 
     public async Task GetAllEmployeesWithoutFilter()
     {
-        List<EmployeeOutput> allEmployees = new List<EmployeeOutput>();
         int page = 1;
         int pageSize = 10;
         string nameFilter = null;
 
-       
-            var filter = new EmployeeGetFilter(
-                NameContains: string.IsNullOrEmpty(nameFilter) ? null : nameFilter,
-                Page: page,
-                ItemsPerPage: pageSize
-                );
 
-         var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);               
-
-        filteredEmployees = allEmployees;
-        //StateHasChanged();
-    }
-
-    private async Task SearchEmployee()
-    {
-        if (!string.IsNullOrEmpty(searchText))
-        {
-            var filter = new EmployeeGetFilter(
-                NameContains: searchText,
-                Page: 1,
-                ItemsPerPage: 10
+        var filter = new EmployeeGetFilter(
+            NameContains: searchBarVM.NameContains,
+            Page: page,
+            ItemsPerPage: pageSize
             );
 
-            
-                var paginatedEmployees = await employeeSdk.GetEmployeesByFilter(filter);
-                filteredEmployees = paginatedEmployees.Items.ToList();           
-                Console.WriteLine($"empleado encontradocon el nombre {searchText}");
-        }   
+        Employees = await employeeSdk.GetEmployeesByFilter(filter);
+    }
+
+    private void NavigateTo()
+    {
+        var uriWithOutQry = new Uri(Navigation.Uri).GetLeftPart(UriPartial.Path) + "?";
+
+        var queryParams = new List<string>();
+
+        if (!string.IsNullOrEmpty(searchBarVM.NameContains))
+            queryParams.Add($"Name={searchBarVM.NameContains}");
+
+        uriWithOutQry += $"{string.Join("&", queryParams)}";
+
+        Navigation.NavigateTo(uriWithOutQry.TrimEnd('?'));
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        SetVm();
+        await GetAllEmployeesWithoutFilter();
+
        
-        StateHasChanged();
+        await base.OnParametersSetAsync();
     }
 
     private async Task EditEmployee(string employeeId)
-    {       
-        // Ocultar la tabla cuando se hace clic en Edit
-        isTableVisible = false;
-
+    {  
         var employee = await employeeSdk.GetEmployee(employeeId);
 
             var parameters = new DialogParameters
             {
                 { "model", employee }
             };
-
-            //var options = new DialogOptions { CloseOnEscapeKey = true };
-
         
             var EditedDialog = await DialogService.ShowAsync<EditModal>("Update Employee", parameters);
             var result = await EditedDialog.Result;
@@ -141,8 +114,7 @@
             if (!result!.Canceled)
             {
                 await GetAllEmployeesWithoutFilter();
-            }
-        isTableVisible = true;
+            }        
     }
 
 
@@ -152,9 +124,7 @@
         {
             { "EmployeeId", employeeId }
         };
-
         //var options = new DialogOptions { CloseOnEscapeKey = true };
-
         var deleteDialog = await DialogService.ShowAsync<DeleteModals>("Delete Employee", parameters);
         var result = await deleteDialog.Result;
 
@@ -163,4 +133,12 @@
            await GetAllEmployeesWithoutFilter();
         }
     }  
+
+    void SetVm()
+    {
+        searchBarVM = new()
+            {               
+                NameContains = Name
+            };
+    }
 }
