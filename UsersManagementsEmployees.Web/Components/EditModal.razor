@@ -5,7 +5,7 @@
 @using Management.Outputs
 
 @inject IEmployeeSdk employeeSdk
-
+@inject IDialogService DialogService
 
 <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
@@ -18,21 +18,18 @@
                     <MudTextField Label="Last Name" @bind-Value="model.LastName" For="@(() => model.LastName)" />
                     <MudTextField Label="DUI" @bind-Value="model.Dui" For="@(() => model.Dui)" InputType="InputType.Number" />
                 </MudCardContent>
-                <MudCardActions>
-                    <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit" Class="ml-auto">Save Changes</MudButton>
-                    <MudButton Variant="Variant.Filled" Color="Color.Secondary" OnClick="Cancel">Cancel</MudButton>
-                </MudCardActions>
             </MudCard>
         </MudItem>
     </MudGrid>
 </EditForm>
 
 
-@code {
-    private EmployeeOutput model = new EmployeeOutput();
-    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; }
-    bool success = false;
 
+@code {
+    [Parameter] public EmployeeOutput model { get; set; }
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; }
+    [Parameter] public string ContentText { get; set; }
+   
     public class EmployeeOutput
     {
         [Required]
@@ -71,5 +68,4 @@
         Console.WriteLine("Empleado Edited exitosamente.");
     }
     private void Cancel() => MudDialog.Cancel();
-}
 }

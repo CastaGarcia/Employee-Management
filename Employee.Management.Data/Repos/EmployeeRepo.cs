@@ -18,7 +18,7 @@ namespace Employees.Management.Data.Repos
         public async Task AddAsync(Employee employee)
         {
             await _db.Employees.AddAsync(employee);
-            await _db.Employees.AddRangeAsync();
+            await _db.SaveChangesAsync();
 
         }
 
@@ -54,6 +54,7 @@ namespace Employees.Management.Data.Repos
             {
                 return null; 
             }
+            existingEmployee.Id = employee.Id;
             existingEmployee.FirstName = employee.FirstName;
             existingEmployee.LastName = employee.LastName;
             existingEmployee.Dui = employee.Dui;

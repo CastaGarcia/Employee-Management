@@ -4,7 +4,7 @@
     {
         private Employee() { }
 
-        public Employee(string firstName, string lastName, int dui, string? id = null)
+        public Employee(string? id, string firstName, string lastName, int dui)
         {
             Id = id ?? Guid.NewGuid().ToString();
             FirstName = firstName;

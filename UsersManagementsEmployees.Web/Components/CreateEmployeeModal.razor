@@ -1,0 +1,30 @@
+﻿@using Management.Outputs
+@using MudBlazor
+@using UsersManagementsEmployees.Web.Components.ViewModels
+
+<MudDialog>
+    <TitleContent>
+        CREATE EMPLOYEES
+    </TitleContent>
+    <DialogContent>
+        <MudTextField T="string" Label="Id" @bind-Value="model.Id" />
+        <MudTextField T="string" Label="FirstName" @bind-Value="model.FirstName"/>
+        <MudTextField T="string" Label="LastName" @bind-Value="model.LastName" />
+        <MudTextField T="int" Label="Dui" @bind-Value="model.Dui" />
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private IMudDialogInstance MudDialog { get; set; } 
+    [Parameter]
+    public EmployeeVM model { get; set; } = new EmployeeVM();
+
+    private void Submit() => MudDialog.Close(DialogResult.Ok(model));
+
+    private void Cancel() => MudDialog.Cancel();
+}

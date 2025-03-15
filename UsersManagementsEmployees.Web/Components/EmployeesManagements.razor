@@ -18,6 +18,7 @@
             <MudPaper Class="pa-4">
                 <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Employees</MudText>                
                 <SearchBar SearchBarVM=searchBarVM OnSearch=NavigateTo/>
+                <MudButton Variant="Variant.Filled" OnClick="(e => Create())" Color="Color.Secondary" Class="ml-2">Add Employee</MudButton>
                 @if (Employees != null)
                 {
                     <MudTable Items="Employees.Items" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
@@ -52,13 +53,15 @@
 <CascadingValue Value="OnEmployeeDeleted">
     <DeleteModals />
 </CascadingValue>
+
+
 @code {
     private PaginatedListOutput<EmployeeOutput>? Employees = null;
     SearchBarVM searchBarVM = new SearchBarVM();
 
     [SupplyParameterFromQuery]
     [Parameter]
-    public string Name { get; set; }
+    public string Name { get; set; }   
 
     public async Task GetAllEmployeesWithoutFilter()
     {
@@ -74,6 +77,69 @@
             );
 
         Employees = await employeeSdk.GetEmployeesByFilter(filter);
+    }
+
+    private async Task Create()
+    {
+        var dialogResul = await DialogService.Show<CreateEmployeeModal>("Create Employee").Result;
+        if (dialogResul.Canceled)
+        {
+            return;
+        };
+        if (dialogResul.Data is EmployeeVM newEmployee)
+        {           
+            var employeeCreationData = new EmployeeCreationData
+            (
+                newEmployee.Id,
+                newEmployee.FirstName,
+                newEmployee.LastName,
+                newEmployee.Dui
+            );
+            
+            var createdEmployee = await employeeSdk.Create(employeeCreationData);
+
+            await GetAllEmployeesWithoutFilter();
+            StateHasChanged();
+        }
+    }
+
+    private async Task EditEmployee(string employeeId)
+    {
+        var employee = await employeeSdk.GetEmployee(employeeId);
+
+        var parameters = new DialogParameters
+    {
+        { "model", employee }
+    };
+
+        var EditedDialog = await DialogService.ShowAsync<EditModal>("Update Employee", parameters);
+        var result = await EditedDialog.Result;
+
+        if (result == null || result.Canceled)
+        {
+            // Manejar el caso en que el resultado es nulo o el diálogo fue cancelado
+            return;
+        }
+
+        // Si el resultado no es nulo y no fue cancelado, actualiza la lista de empleados
+        await GetAllEmployeesWithoutFilter();
+    }
+
+
+    private async Task OnEmployeeDeleted(string employeeId)
+    {
+        var parameters = new DialogParameters
+        {
+            { "EmployeeId", employeeId }
+        };
+        //var options = new DialogOptions { CloseOnEscapeKey = true };
+        var deleteDialog = await DialogService.ShowAsync<DeleteModals>("Delete Employee", parameters);
+        var result = await deleteDialog.Result;
+
+        if (!result!.Canceled)
+        {
+            await GetAllEmployeesWithoutFilter();
+        }
     }
 
     private void NavigateTo()
@@ -99,46 +165,16 @@
         await base.OnParametersSetAsync();
     }
 
-    private async Task EditEmployee(string employeeId)
-    {  
-        var employee = await employeeSdk.GetEmployee(employeeId);
-
-            var parameters = new DialogParameters
-            {
-                { "model", employee }
-            };
-        
-            var EditedDialog = await DialogService.ShowAsync<EditModal>("Update Employee", parameters);
-            var result = await EditedDialog.Result;
-
-            if (!result!.Canceled)
-            {
-                await GetAllEmployeesWithoutFilter();
-            }        
-    }
-
-
-    private async Task OnEmployeeDeleted(string employeeId)
-    {
-        var parameters = new DialogParameters
-        {
-            { "EmployeeId", employeeId }
-        };
-        //var options = new DialogOptions { CloseOnEscapeKey = true };
-        var deleteDialog = await DialogService.ShowAsync<DeleteModals>("Delete Employee", parameters);
-        var result = await deleteDialog.Result;
-
-        if (!result!.Canceled)
-        {
-           await GetAllEmployeesWithoutFilter();
-        }
-    }  
-
     void SetVm()
     {
         searchBarVM = new()
-            {               
+            {
                 NameContains = Name
             };
     }
+
+    
+
+    
+  
 }

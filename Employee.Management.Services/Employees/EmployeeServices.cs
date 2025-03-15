@@ -2,6 +2,7 @@
 using Employees.Management.Models;
 using Management;
 using Management.Inputs;
+using System.Timers;
 
 namespace Employees.Management.Services.Employees
 {
@@ -13,25 +14,30 @@ namespace Employees.Management.Services.Employees
         {
             _employeeRepo = employeeRepo;
         }
+        
         public async Task<Employee?> Create(EmployeeCreationData employeeCreationData)
         {
             if (string.IsNullOrEmpty(employeeCreationData.Id) == false)
             {
-                Employee? employeExist = await _employeeRepo.GetById(employeeCreationData.Id);
-                if (employeExist != null)
-                    throw new Exception("employe already exist");
-            }
+                Employee? employeeExist = await _employeeRepo.GetById(employeeCreationData.Id);
+                if (employeeExist != null)
+                    throw new Exception("Employee already exists");
 
-            Employee employe = new Employee(
-                employeeCreationData.FirstName,
-                employeeCreationData.LastName,
-                employeeCreationData.Dui,
-                employeeCreationData.Id
+                Employee newEmployee = new Employee
+                (
+                    employeeCreationData.Id,    
+                   employeeCreationData.FirstName,
+                    employeeCreationData.LastName,
+                    employeeCreationData.Dui
                 );
 
-            await _employeeRepo.AddAsync(employe);
-            await _employeeRepo.SaveChangesAsync();
-            return employe;
+                await _employeeRepo.AddAsync(newEmployee);  
+                return newEmployee;
+            }
+            else
+            {
+                throw new Exception("Invalid employee ID");  
+            }
         }
 
         public async Task Delete(string employeeId)
@@ -40,8 +46,7 @@ namespace Employees.Management.Services.Employees
 
             if (employee != null)
             {
-                await _employeeRepo.Delete(employeeId);  
-                await _employeeRepo.SaveChangesAsync();  
+                await _employeeRepo.Delete(employeeId); 
             }
         }
         
@@ -56,8 +61,6 @@ namespace Employees.Management.Services.Employees
         public async Task<PaginatedListOutput<Employee>> GetEmployeesByFilter(EmployeeGetFilter employeeGetFilter)
         {
             var paginatedEmployees = await _employeeRepo.GetEmployeesByFilter(employeeGetFilter);
-
-
             return paginatedEmployees;
         }
       
@@ -68,14 +71,15 @@ namespace Employees.Management.Services.Employees
 
             Employee? employeExist = await _employeeRepo.GetById(employeeUpdateData.Id);
             if (employeExist == null)
+            {
                 throw new Exception("the employe that you look for doesnt eist");
+            }
 
             employeExist.FirstName = employeeUpdateData.FirstName;
             employeExist.LastName = employeeUpdateData.LastName;
             employeExist.Dui = employeeUpdateData.Dui;
 
-            await _employeeRepo.SaveChangesAsync();
-            return employeExist;
+            return await _employeeRepo.Update(employeExist);
         }
     }
 }

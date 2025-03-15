@@ -1,4 +1,5 @@
 ﻿@using MudBlazor
+@using UsersManagementsEmployees.Web.Components
 
 
 @inherits LayoutComponentBase
@@ -13,8 +14,12 @@
 @* Needed for snackbars *@
 <MudSnackbarProvider />
 
+
+<MudAppBar Color="Color.Dark" Dark="true">
+    <h1>Employees Administration</h1>
+</MudAppBar>
 <div class="page">
-    <div class="sidebar">
+    <div class="sidebar">   
         <NavMenu />
     </div>
 
