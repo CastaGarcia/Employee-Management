@@ -33,7 +33,7 @@ namespace Employees.Management.Api.Controllers
 
 
         [HttpGet("{id}")]
-       // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetEmployee(string id)
         {
             Employee? employee = await _employeeService.GetById(id);
@@ -42,7 +42,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpGet]
-       // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetByFilter([FromQuery] EmployeeGetFilter employeeGetFilter)
         {
             var employees = await _employeeService.GetEmployeesByFilter(employeeGetFilter);
@@ -53,7 +53,7 @@ namespace Employees.Management.Api.Controllers
 
         
         [HttpDelete("{id}")]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+       [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Delete(string id)
         {
             await _employeeService.Delete(id);

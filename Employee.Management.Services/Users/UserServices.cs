@@ -1,13 +1,16 @@
 ﻿using Employees.Management.Data;
+using Employees.Management.Dtos;
 using Employees.Management.Models;
 using Management.Inputs;
+using System;
+using System.Security.Cryptography;
 
 namespace Employees.Management.Services.Users
 {
     public class UserServices : IUserServices
     {
         readonly IUserRepo _userRepo;
-
+      
         public UserServices(IUserRepo userRepo)
         {
             _userRepo = userRepo;
@@ -69,6 +72,6 @@ namespace Employees.Management.Services.Users
 
             await _userRepo.SaveChangesAsync();
             return UserExist;
-        }
+        }       
     }
 }

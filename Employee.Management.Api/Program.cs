@@ -21,7 +21,7 @@ try
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen(options =>
     {
-        //we define the Security for authentication
+        //define the Security for authentication
         options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
             Name = "Authorization",
@@ -64,11 +64,7 @@ try
     //Add service of JWT Autorization
     builder.Services.AddJwtTokenService(builder.Configuration);
 
-    //Add Authorization 
-    builder.Services.AddAuthorization(option =>
-    {
-        option.AddPolicy("UserOnlyPolicy", policy => policy.RequireClaim("UserOnly", "User1"));
-    });
+    
     //Automapper
     builder.Services.AddAutoMapper(typeof(DummyMarker).Assembly);
     builder.Services.AddHttpContextAccessor();
@@ -77,7 +73,7 @@ try
     builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
     builder.Services.AddScoped<IEmployeeServices, EmployeeServices>();
     builder.Services.AddScoped<IUserRepo, UserRepo>();
-    builder.Services.AddScoped<IUserServices, UserServices>();
+    builder.Services.AddScoped<IUserServices, UserServices>();   
 
     builder.Services.AddCors(options =>
     {

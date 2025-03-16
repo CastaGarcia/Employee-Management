@@ -32,7 +32,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpGet("{id}")]
-       // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+       [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> GetUser(string id)
         {
             User? user = await _userService.GetById(id);
@@ -41,7 +41,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-     //   [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             await _userService.Delete(id);
@@ -50,7 +50,7 @@ namespace Employees.Management.Api.Controllers
         }
 
         [HttpPut]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Update([FromBody] UserUpdateData userUpdateData)
         {
             User? user = await _userService.Update(userUpdateData);

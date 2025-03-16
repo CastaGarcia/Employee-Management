@@ -10,49 +10,45 @@
 @inject NavigationManager Navigation
 @inject IDialogService DialogService
 
-<PageTitle>Employees</PageTitle>
 
-<MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
-    <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
-        <MudItem xs="12" sm="8" md="6" lg="12">
-            <MudPaper Class="pa-4">
-                <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Employees</MudText>                
-                <SearchBar SearchBarVM=searchBarVM OnSearch=NavigateTo/>
-                <MudButton Variant="Variant.Filled" OnClick="(e => Create())" Color="Color.Secondary" Class="ml-2">Add Employee</MudButton>
-                @if (Employees != null)
-                {
-                    <MudTable Items="Employees.Items" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
-                        <HeaderContent>
-                            <MudTh>ID</MudTh>
-                            <MudTh>Name</MudTh>
-                            <MudTh>Apellido</MudTh>
-                            <MudTh>DUI</MudTh>
-                            <MudTh>Actions</MudTh>
-                        </HeaderContent>
-                        <RowTemplate>
-                            <MudTd DataLabel="ID">@context.Id</MudTd>
-                            <MudTd DataLabel="Name">@context.FirstName</MudTd>
-                            <MudTd DataLabel="Apellido">@context.LastName</MudTd>
-                            <MudTd DataLabel="DUI">@context.Dui</MudTd>
-                            <MudTd DataLabel="Actions">
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => EditEmployee(@context.Id))">Edit</MudButton>
-                                <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="@(() => OnEmployeeDeleted(@context.Id))">Delete</MudButton>
-                            </MudTd>
-                        </RowTemplate>
-                    </MudTable>
-                }                
-            </MudPaper>
-        </MudItem>
-    </MudGrid>
-</MudContainer>
+<NavMenuR />
+<div class="container-fluid" style="margin-left: 250px; padding-top: 60px;">
+    <PageTitle>Employees</PageTitle>
 
-<CascadingValue Value="EditEmployee">
-    <EditModal />
-</CascadingValue>
-
-<CascadingValue Value="OnEmployeeDeleted">
-    <DeleteModals />
-</CascadingValue>
+    <MudContainer class="d-flex justify-content-center align-items-center" style="height: 100%;">
+        <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
+            <MudItem xs="12" sm="8" md="6" lg="12">
+                <MudPaper Class="pa-4">
+                    <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Employees</MudText>
+                    <SearchBar SearchBarVM=searchBarVM OnSearch=NavigateTo />
+                    <MudButton Variant="Variant.Filled" OnClick="(e => Create())" Color="Color.Secondary" Class="ml-2">Add Employee</MudButton>
+                    @if (Employees != null)
+                    {
+                        <MudTable Items="Employees.Items" Striped="true" Hover="true" Bordered="true" Breakpoint="Breakpoint.Md">
+                            <HeaderContent>
+                                <MudTh>ID</MudTh>
+                                <MudTh>Name</MudTh>
+                                <MudTh>Apellido</MudTh>
+                                <MudTh>DUI</MudTh>
+                                <MudTh>Actions</MudTh>
+                            </HeaderContent>
+                            <RowTemplate>
+                                <MudTd DataLabel="ID">@context.Id</MudTd>
+                                <MudTd DataLabel="Name">@context.FirstName</MudTd>
+                                <MudTd DataLabel="Apellido">@context.LastName</MudTd>
+                                <MudTd DataLabel="DUI">@context.Dui</MudTd>
+                                <MudTd DataLabel="Actions">
+                                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => EditEmployee(@context))">Edit</MudButton>
+                                    <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="@(() => OnEmployeeDeleted(@context.Id))">Delete</MudButton>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    }
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    </MudContainer>
+</div>
 
 
 @code {
@@ -61,7 +57,7 @@
 
     [SupplyParameterFromQuery]
     [Parameter]
-    public string Name { get; set; }   
+    public string Name { get; set; }
 
     public async Task GetAllEmployeesWithoutFilter()
     {
@@ -85,9 +81,10 @@
         if (dialogResul.Canceled)
         {
             return;
-        };
+        }
+        ;
         if (dialogResul.Data is EmployeeVM newEmployee)
-        {           
+        {
             var employeeCreationData = new EmployeeCreationData
             (
                 newEmployee.Id,
@@ -95,33 +92,33 @@
                 newEmployee.LastName,
                 newEmployee.Dui
             );
-            
+
             var createdEmployee = await employeeSdk.Create(employeeCreationData);
 
             await GetAllEmployeesWithoutFilter();
             StateHasChanged();
         }
     }
-
-    private async Task EditEmployee(string employeeId)
+    private async Task EditEmployee(EmployeeOutput employee)
     {
-        var employee = await employeeSdk.GetEmployee(employeeId);
-
         var parameters = new DialogParameters
     {
-        { "model", employee }
+        { "EmployeeOutput", employee }
     };
-
         var EditedDialog = await DialogService.ShowAsync<EditModal>("Update Employee", parameters);
         var result = await EditedDialog.Result;
 
         if (result == null || result.Canceled)
         {
-            // Manejar el caso en que el resultado es nulo o el diálogo fue cancelado
+            Console.WriteLine("El diálogo se cerró sin devolver un resultado.");
+            return;
+        }
+        if (result.Canceled)
+        {
+            Console.WriteLine("El diálogo fue cancelado.");
             return;
         }
 
-        // Si el resultado no es nulo y no fue cancelado, actualiza la lista de empleados
         await GetAllEmployeesWithoutFilter();
     }
 
@@ -132,7 +129,7 @@
         {
             { "EmployeeId", employeeId }
         };
-        //var options = new DialogOptions { CloseOnEscapeKey = true };
+
         var deleteDialog = await DialogService.ShowAsync<DeleteModals>("Delete Employee", parameters);
         var result = await deleteDialog.Result;
 
@@ -161,8 +158,9 @@
         SetVm();
         await GetAllEmployeesWithoutFilter();
 
-       
+
         await base.OnParametersSetAsync();
+        StateHasChanged();
     }
 
     void SetVm()
@@ -173,8 +171,8 @@
             };
     }
 
-    
 
-    
-  
+
+
+
 }

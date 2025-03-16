@@ -13,6 +13,6 @@ namespace Management
         /// </summary>
         /// <param name="userLoged"></param>
         [Post(BASEURL)]
-        Task<UserOutput> GetToken([Body] UserLogin userLoged);
+        Task<UserTokenOutPut> GetToken([Body] UserLogin userLoged);
     }
 }

@@ -4,32 +4,22 @@
 
 @inherits LayoutComponentBase
 
-@* Required *@
 <MudThemeProvider />
-<MudPopoverProvider />
-
-@* Needed for dialogs *@
+@*<MudPopoverProvider />*@
 <MudDialogProvider />
-
-@* Needed for snackbars *@
 <MudSnackbarProvider />
 
 
-<MudAppBar Color="Color.Dark" Dark="true">
-    <h1>Employees Administration</h1>
-</MudAppBar>
-<div class="page">
-    <div class="sidebar">   
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+<MudLayout>
+    <MudAppBar Color="Color.Primary">
+        <h1>EMPLOYEES Administration</h1>
+        <MudLink Color="Color.Inherit" Href="/"> </MudLink>
+        <MudSpacer />
+        <MudLink Color="Color.Inherit" Underline="Underline.None" Href="/register"> <h3>Registrarse</h3> </MudLink>
+        <MudSpacer />
+        <MudLink Color="Color.Inherit" Href="/login"><h2>ComeBack to Login</h2> </MudLink>
+    </MudAppBar>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>

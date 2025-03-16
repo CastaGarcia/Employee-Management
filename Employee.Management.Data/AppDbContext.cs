@@ -1,4 +1,5 @@
-﻿using Employees.Management.Models;
+﻿using Employees.Management.Dtos;
+using Employees.Management.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Employees.Management.Data
@@ -10,7 +11,7 @@ namespace Employees.Management.Data
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

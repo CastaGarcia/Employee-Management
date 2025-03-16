@@ -3,66 +3,63 @@
 @using MudBlazor
 @using Management.Inputs
 @using Management.Outputs
+@using UsersManagementsEmployees.Web.Components.ViewModels
 
 @inject IEmployeeSdk employeeSdk
 @inject IDialogService DialogService
 
-<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+<div class="ma-6 justify-content">
+    <EditForm Model="@employeeVM" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <MudGrid>
         <MudItem xs="12" sm="7">
             <MudCard>
                 <MudCardContent>
-                    <MudTextField Label="Id" @bind-Value="model.Id" For="@(() => model.Id)" Disabled />
-                    <MudTextField Label="First Name" @bind-Value="model.FirstName" For="@(() => model.FirstName)" />
-                    <MudTextField Label="Last Name" @bind-Value="model.LastName" For="@(() => model.LastName)" />
-                    <MudTextField Label="DUI" @bind-Value="model.Dui" For="@(() => model.Dui)" InputType="InputType.Number" />
+                        <MudTextField Label="Id" @bind-Value="employeeVM.Id" For="@(() => employeeVM.Id)" Disabled />
+                        <MudTextField Label="First Name" @bind-Value="employeeVM.FirstName" For="@(() => employeeVM.FirstName)" />
+                        <MudTextField Label="Last Name" @bind-Value="employeeVM.LastName" For="@(() => employeeVM.LastName)" />
+                        <MudTextField Label="DUI" @bind-Value="employeeVM.Dui" For="@(() => employeeVM.Dui)" InputType="InputType.Number" />
                 </MudCardContent>
+                <MudCardActions>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit" Class="mx-auto d-flex"
+                                   Style="width: 100px; height: 40px; font-size: 20px;">EDITAR</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mx-auto d-flex"
+                                   Style="width: 100px; height: 40px; font-size: 20px;" OnClick="Cancel">Cancel</MudButton>
+                </MudCardActions>
             </MudCard>
         </MudItem>
     </MudGrid>
 </EditForm>
+</div>
 
 
-
-@code {
-    [Parameter] public EmployeeOutput model { get; set; }
+@code {    
     [CascadingParameter] private IMudDialogInstance MudDialog { get; set; }
     [Parameter] public string ContentText { get; set; }
+
+    [Parameter] public EmployeeOutput EmployeeOutput { get; set; }
+
+    EmployeeVM employeeVM = new EmployeeVM();
    
-    public class EmployeeOutput
+    protected override void OnInitialized()
     {
-        [Required]
-        [StringLength(20, ErrorMessage = "Name length can't be more than 20.")]
-        public string Id { get; set; }
-
-        [Required]
-        [EmailAddress]
-        public string FirstName { get; set; }
-
-        [Required]
-        [StringLength(30, ErrorMessage = "Password must be at least 8 characters long.", MinimumLength = 8)]
-        public string LastName { get; set; }
-
-        [Required]
-        [StringLength(9, ErrorMessage = "Dui must be at least 9 characters long.", MinimumLength = 9)]
-        public int Dui { get; set; }
-
+        employeeVM.Id = EmployeeOutput.Id;
+        employeeVM.FirstName = EmployeeOutput.FirstName;
+        employeeVM.LastName = EmployeeOutput.LastName;
+        employeeVM.Dui = EmployeeOutput.Dui;
     }
 
     private async Task OnValidSubmit()
     {
         var employeeUpdateData = new EmployeeUpdateData
             (
-                Id : model.Id,
-                FirstName : model.FirstName,
-                LastName : model.LastName,
-                Dui : model.Dui
+                Id: employeeVM.Id,
+                FirstName: employeeVM.FirstName,
+                LastName: employeeVM.LastName,
+                Dui: employeeVM.Dui
             );
 
         var updatedEmployee = await employeeSdk.Update(employeeUpdateData);
-
-        //success = true;
 
         MudDialog.Close(DialogResult.Ok(updatedEmployee));
         Console.WriteLine("Empleado Edited exitosamente.");

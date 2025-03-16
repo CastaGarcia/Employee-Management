@@ -1,3 +1,4 @@
+using Employees.Management.Api;
 using Management;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -12,15 +13,20 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 //ApiSetting Instance
 ApiSetting apiSettings = builder.Configuration.GetSection(nameof(ApiSetting))
                                                      .Get<ApiSetting>()!;
+
+builder.Services.AddTransient<AuthDelegatingHandler>();
 //Injecting SDK
 builder.Services.AddRefitClient<IEmployeeSdk>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlManagementApi));
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlManagementApi))
+    .AddHttpMessageHandler(x => x.GetRequiredService<AuthDelegatingHandler>());
 
 builder.Services.AddRefitClient<IUserSdk>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlManagementApi));
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlManagementApi))
+    .AddHttpMessageHandler(x => x.GetRequiredService<AuthDelegatingHandler>());
 
 builder.Services.AddRefitClient<IAccountSdk>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlManagementApi));
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiSettings.UrlManagementApi))
+    .AddHttpMessageHandler(x => x.GetRequiredService<AuthDelegatingHandler>());
 
 
 

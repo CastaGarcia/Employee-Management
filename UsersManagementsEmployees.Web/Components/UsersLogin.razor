@@ -1,11 +1,15 @@
 ﻿
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
+@using Management.Inputs
+@using Management.Outputs
 @using MudBlazor
 @using Management
 
 @inject AuthService authService
 @inject NavigationManager Navigation
+@inject IJSRuntime _JSRuntime
+@inject IAccountSdk accountSdk
 
 <MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
     <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center" Style="height: 50%;">
@@ -49,24 +53,24 @@
 
     private UserLoginVM userLogin = new UserLoginVM();    
     private string? errorMessage;
+    
 
     private async Task OnValidSubmit()
     {
+        
         try
         {
             if (userLogin != null)
             {
-                bool isAuthenticated = await authService.ValidateUserAsync(userLogin.UserName, userLogin.PassWord);
+                UserLogin userLoged = new UserLogin(userLogin.UserName, userLogin.PassWord);                
 
-                if (isAuthenticated)
-                {
-                    Navigation.NavigateTo("/employees");
-                    errorMessage = null;
-                }
-                else
-                {
-                    errorMessage = "Nombre de usuario o contraseña incorrectos.";
-                }
+                UserTokenOutPut user = await accountSdk.GetToken(userLoged);
+
+                await _JSRuntime.InvokeVoidAsync("localStorage.setItem", "token", user.Token);
+
+                Navigation.NavigateTo("/employees");
+
+                
             }
         }
         catch (Exception ex)

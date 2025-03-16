@@ -12,6 +12,7 @@ namespace Employees.Management.Services.MappingProfile
             CreateMap<Employee, EmployeeOutput>();
             CreateMap<User, UserOutput>();
 
+
             CreateMap<PaginatedListOutput<Employee>, PaginatedListOutput<EmployeeOutput>>();
         }
             

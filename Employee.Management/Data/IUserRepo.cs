@@ -1,4 +1,5 @@
-﻿using Employees.Management.Models;
+﻿using Employees.Management.Dtos;
+using Employees.Management.Models;
 using Management.Inputs;
 
 namespace Employees.Management.Data
@@ -10,5 +11,6 @@ namespace Employees.Management.Data
         void Delete(User user);
         Task Update(User user);
         Task SaveChangesAsync();
+       
     }
 }
