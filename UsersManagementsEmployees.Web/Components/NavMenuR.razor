@@ -1,12 +1,13 @@
-﻿<MudPaper Width="250px" Class="py-3" Elevation="0" Style="position: fixed; top: 0; bottom: 0; left: 0;">
+﻿@inject TokenServiceReader tokenServiceReader
+
+<MudPaper Width="250px" Class="py-3" Elevation="0" Style="position: fixed; top: 0; bottom: 0; left: 0;">
     <MudNavMenu>
         <MudText Typo="Typo.h6" Class="px-4">My Application</MudText>
         <MudText Typo="Typo.body2" Class="px-4 mud-text-secondary">Secondary Text</MudText>
         <MudDivider Class="my-2" />
         <MudCard Class="mx-4 mb-3">
-            <MudCardContent>
-                <MudText Typo="Typo.h6" Class="text-center">Bienvenido:</MudText>
-                <MudText Typo="Typo.body1" Class="text-center">Nombre del Usuario</MudText>
+            <MudCardContent>                
+                <MudText Typo="Typo.h6" Class="text-center" Color="Color.Secondary">@welcomeMessage</MudText>
             </MudCardContent>
         </MudCard>
         <MudNavLink Href="/"><h3>Salir</h3></MudNavLink>
@@ -14,5 +15,19 @@
 </MudPaper>
 
 @code{
-    @*Todo*@
+    private string welcomeMessage = "Bienvenido";
+    //TokenServiceReader to get user name
+    protected override async Task OnInitializedAsync()
+    {
+        var username = await tokenServiceReader.GetUsernameFromTokenAsync();
+
+        if (!string.IsNullOrEmpty(username))
+        {
+            welcomeMessage = $"Bienvenido: {username}";
+        }
+        else
+        {
+            welcomeMessage = "Bienvenido: Usuario desconocido";
+        }
+    }
 }
