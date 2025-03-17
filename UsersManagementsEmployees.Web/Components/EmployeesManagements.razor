@@ -1,7 +1,10 @@
 ﻿@page "/employees"
+@*@attribute [Authorize]*@
 
 @using Management
 @using Management.Inputs
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
 @using MudBlazor
 @using Management.Outputs
 @using UsersManagementsEmployees.Web.Components.ViewModels
@@ -9,6 +12,7 @@
 @inject IEmployeeSdk employeeSdk
 @inject NavigationManager Navigation
 @inject IDialogService DialogService
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 
 <NavMenuR />
@@ -58,6 +62,8 @@
     [SupplyParameterFromQuery]
     [Parameter]
     public string Name { get; set; }
+
+    
 
     public async Task GetAllEmployeesWithoutFilter()
     {
@@ -170,9 +176,5 @@
                 NameContains = Name
             };
     }
-
-
-
-
 
 }

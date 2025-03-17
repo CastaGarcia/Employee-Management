@@ -3,13 +3,14 @@
 @using System.ComponentModel.DataAnnotations
 @using Management.Inputs
 @using Management.Outputs
+@using Microsoft.AspNetCore.Components.Authorization
 @using MudBlazor
 @using Management
 
-@inject AuthService authService
 @inject NavigationManager Navigation
 @inject IJSRuntime _JSRuntime
 @inject IAccountSdk accountSdk
+
 
 <MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
     <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center" Style="height: 50%;">
@@ -67,10 +68,9 @@
                 UserTokenOutPut user = await accountSdk.GetToken(userLoged);
 
                 await _JSRuntime.InvokeVoidAsync("localStorage.setItem", "token", user.Token);
+                
 
                 Navigation.NavigateTo("/employees");
-
-                
             }
         }
         catch (Exception ex)
