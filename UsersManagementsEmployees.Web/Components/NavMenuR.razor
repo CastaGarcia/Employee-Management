@@ -1,4 +1,5 @@
-﻿@inject TokenServiceReader tokenServiceReader
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@inject TokenServiceReader tokenServiceReader
 
 <MudPaper Width="250px" Class="py-3" Elevation="0" Style="position: fixed; top: 0; bottom: 0; left: 0;">
     <MudNavMenu>
@@ -10,10 +11,27 @@
                 <MudText Typo="Typo.h6" Class="text-center" Color="Color.Secondary">@welcomeMessage</MudText>
             </MudCardContent>
         </MudCard>
-        <MudNavLink Href="/"><h3>Salir</h3></MudNavLink>
+        <AuthorizeView>
+             <Authorized>
+            <MudNavLink Href="/"><h3>Salir</h3></MudNavLink>
+            </Authorized>
+        </AuthorizeView>            
+        <AuthorizeView Roles="Admin">
+            <Authorized>
+                <MudNavLink Href=""><h3>Enviar Mje.</h3></MudNavLink>
+            </Authorized>
+            <NotAuthorized>
+                <MudNavLink Href="/Employees"><h3>Ver Empleados</h3></MudNavLink>
+               
+                <MudNavLink Href=""><h3>Suggestions</h3></MudNavLink>
+            </NotAuthorized>
+        </AuthorizeView>          
     </MudNavMenu>
 </MudPaper>
 
+        
+   
+   
 @code{
     private string welcomeMessage = "Bienvenido";
     //TokenServiceReader to get user name

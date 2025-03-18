@@ -1,5 +1,5 @@
 ﻿@page "/employees"
-@*@attribute [Authorize]*@
+@attribute [Authorize(Roles = "Admin")]
 
 @using Management
 @using Management.Inputs
@@ -12,7 +12,7 @@
 @inject IEmployeeSdk employeeSdk
 @inject NavigationManager Navigation
 @inject IDialogService DialogService
-@inject AuthenticationStateProvider AuthenticationStateProvider
+
 
 
 <NavMenuR />
