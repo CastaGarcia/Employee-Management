@@ -147,7 +147,4 @@ finally
 {
     Log.CloseAndFlush();
 }
-
-
-
 public partial class Program { } //to use Integration Test

@@ -11,7 +11,7 @@
 @inject IJSRuntime _JSRuntime
 @inject IAccountSdk accountSdk
 
-
+<NavMenuR />
 <MudContainer Class="d-flex justify-center align-center" Style="height: 100vh; margin-top: 20px;">
     <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center" Style="height: 50%;">
         <MudItem xs="12" sm="8" md="6" lg="4">
@@ -34,11 +34,16 @@
                         <MudButton Variant="Variant.Filled" Color="Color.Primary" DropShadow="false" ButtonType="ButtonType.Submit" Class="mx-auto d-flex"
                         Style="width: 250px; height: 50px; font-size: 20px;">INICIAR SESION</MudButton>
                     </MudPaper>
+
                 </EditForm>
             </MudPaper>
         </MudItem>
     </MudGrid>
 </MudContainer>
+
+
+
+
 
 @code {
     public class UserLoginVM
@@ -69,6 +74,7 @@
 
                 await _JSRuntime.InvokeVoidAsync("localStorage.setItem", "token", user.Token);
                 
+              //  ProveedorAthenticationPrueba.MarkUserAsAuthenticated(user.Token);
 
                 Navigation.NavigateTo("/employees");
             }
