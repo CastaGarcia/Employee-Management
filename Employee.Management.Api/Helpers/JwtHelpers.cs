@@ -1,5 +1,6 @@
 ﻿using Employees.Management.Models;
 using Microsoft.IdentityModel.Tokens;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
@@ -16,6 +17,7 @@ namespace Employees.Management.Api.Helpers
                 new Claim(ClaimTypes.Name, userAccounts.UserName),
                 new Claim(ClaimTypes.NameIdentifier, Id.ToString()),
                 new Claim(ClaimTypes.Expiration, DateTime.UtcNow.AddDays(1).ToString("MMM ddd dd yyy HH:mm:ss tt")),
+                //    new Claim(ClaimTypes.Role, role) // Aquí agregas el claim de rol
             };    
                 return claims;
             }

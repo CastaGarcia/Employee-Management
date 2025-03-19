@@ -1,24 +1,18 @@
-﻿@page "/login"
-@page "/"
+﻿@page "/"
 @using UsersManagementsEmployees.Web.Components
+@using Microsoft.AspNetCore.Components.Authorization
+
 @inject NavigationManager Navigation
-@inject IJSRuntime JSRuntime
 
-<PageTitle>Users</PageTitle>
+<PageTitle>Home</PageTitle>
 
-@if (isActenticated)
-{
-    <EmployeesManagements></EmployeesManagements>
-}
-else
-{
-    <UsersLogin></UsersLogin>
-}
-
-@code {
-
-    bool isActenticated = false;
-
-   
-}
-
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            <EmployeesManagements></EmployeesManagements>
+        </Authorized>
+        <NotAuthorized>
+            <UsersLogin></UsersLogin>
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
