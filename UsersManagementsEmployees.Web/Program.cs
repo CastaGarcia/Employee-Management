@@ -10,11 +10,17 @@ using UsersManagementsEmployees.Web;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-    builder.Services.AddScoped<AuthenticationStateProvider, ProveedorAthenticationPrueba>();
-    builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<ProveedorAthenticationPrueba>();
+builder.Services.AddScoped<AuthenticationStateProvider, ProveedorAthenticationPrueba>();
+builder.Services.AddAuthorizationCore();
 
 builder.Services.AddTransient<AuthDelegatingHandler>();
 builder.Services.AddScoped<TokenServiceReader>();
+
+builder.Services.AddAuthorizationCore(options =>
+{
+    options.AddPolicy("Authenticated", policy => policy.RequireAuthenticatedUser());
+});
 
 //ApiSetting Instance
 ApiSetting apiSettings = builder.Configuration.GetSection(nameof(ApiSetting))
